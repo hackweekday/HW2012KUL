@@ -1,0 +1,11 @@
+<h1>Picture upload</h1>
+
+<%= form_for(:picture,
+						:url => { :action => 'save' },
+						:html => { :multipart => true }) do |f| %>
+
+	Comment:<%= f.text_field("comment") %><br/>
+	Upload your picture: <%= f.file_field("uploaded_picture") %><br/>
+	<%= submit_tag("Upload file") %>
+<% end %>
+
