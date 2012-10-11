@@ -1,0 +1,9 @@
+https://info-wall.rpxnow.com/openid/start?language_preference=en&token_url=http%3A%2F%2F192.168.0.109%3A8000%2Fwall%2Fdefault%2Fuser%2Flogin&display=popup&openid_identifier=https%3A%2F%2Fwww.google.com%2Faccounts%2Fo8%2Fid&force_reauth=false&xdReceiver=https%3A%2F%2Finfo-wall.rpxnow.com%2Fxdcomm&callback=3
+
+
+
+
+https://info-wall.rpxnow.com/openid/start?language_preference=en&token_url=http://192.168.0.109:8000/wall/default/user/login&display=popup&openid_identifier=https://www.google.com/accounts/o8/id&force_reauth=false&xdReceiver=https://info-wall.rpxnow.com/xdcomm&callback=3
+
+
+token_url=http://192.168.0.109:8000/wall/default/user/login

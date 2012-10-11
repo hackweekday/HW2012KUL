@@ -1,0 +1,99 @@
+timestamp: 2012-05-14T20:17:55.957000
+CREATE TABLE auth_user(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    first_name CHAR(128),
+    last_name CHAR(128),
+    email CHAR(512),
+    password CHAR(512),
+    registration_key CHAR(512),
+    reset_password_key CHAR(512),
+    registration_id CHAR(512)
+);
+success!
+timestamp: 2012-05-14T20:17:55.967000
+CREATE TABLE auth_group(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    role CHAR(512),
+    description TEXT
+);
+success!
+timestamp: 2012-05-14T20:17:55.967000
+CREATE TABLE auth_membership(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    user_id INTEGER REFERENCES auth_user(id) ON DELETE CASCADE,
+    group_id INTEGER REFERENCES auth_group(id) ON DELETE CASCADE
+);
+success!
+timestamp: 2012-05-14T20:17:55.977000
+CREATE TABLE auth_permission(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    group_id INTEGER REFERENCES auth_group(id) ON DELETE CASCADE,
+    name CHAR(512),
+    table_name CHAR(512),
+    record_id INTEGER
+);
+success!
+timestamp: 2012-05-14T20:17:55.977000
+CREATE TABLE auth_event(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    time_stamp TIMESTAMP,
+    client_ip CHAR(512),
+    user_id INTEGER REFERENCES auth_user(id) ON DELETE CASCADE,
+    origin CHAR(512),
+    description TEXT
+);
+success!
+timestamp: 2012-05-14T20:17:55.997000
+CREATE TABLE auth_cas(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    user_id INTEGER REFERENCES auth_user(id) ON DELETE CASCADE,
+    created_on TIMESTAMP,
+    service CHAR(512),
+    ticket CHAR(512),
+    renew CHAR(1)
+);
+success!
+timestamp: 2012-10-08T14:34:30.621000
+CREATE TABLE places(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    name CHAR(512),
+    category CHAR(512),
+    lat DOUBLE,
+    lng DOUBLE,
+    description CHAR(512),
+    crby INTEGER REFERENCES auth_user (id) ON DELETE CASCADE,
+    crat TIMESTAMP
+);
+success!
+timestamp: 2012-10-08T14:39:45.087000
+CREATE TABLE tweets(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    tweet CHAR(512),
+    place INTEGER REFERENCES places (id) ON DELETE CASCADE,
+    crby INTEGER REFERENCES auth_user (id) ON DELETE CASCADE,
+    crat TIMESTAMP
+);
+success!
+timestamp: 2012-10-08T14:40:11.215000
+CREATE TABLE ads(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    text CHAR(512),
+    place INTEGER REFERENCES places (id) ON DELETE CASCADE,
+    crby INTEGER REFERENCES auth_user (id) ON DELETE CASCADE,
+    crat TIMESTAMP,
+    expire TIMESTAMP
+);
+success!
+timestamp: 2012-10-10T22:57:48.648057
+ALTER TABLE places ADD hash CHAR(512);
+timestamp: 2012-10-10T22:57:48.889973
+CREATE TABLE posts(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    post CHAR(512),
+    place INTEGER REFERENCES places (id) ON DELETE CASCADE,
+    crby INTEGER REFERENCES auth_user (id) ON DELETE CASCADE,
+    crat TIMESTAMP
+);
+success!
+timestamp: 2012-10-11T07:35:56.115171
+ALTER TABLE posts ADD placehash CHAR(512);

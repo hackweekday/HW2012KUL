@@ -1,0 +1,10 @@
+<resources>
+
+    <string name="app_name">Google Places and Maps</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="menu_settings">Settings</string>
+    <string name="title_activity_main">Info wall nearby</string>
+    <string name="title">Start chilling out..</string>
+    <string name="search_label">Search nearby places</string>
+
+</resources>

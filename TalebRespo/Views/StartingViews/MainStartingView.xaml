@@ -1,0 +1,23 @@
+﻿<UserControl x:Class="Taleb.Views.StartingViews.MainStartingView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:Telerik="http://schemas.telerik.com/2008/xaml/presentation"
+             xmlns:Surface="http://schemas.microsoft.com/surface/2008"
+             xmlns:MainViews="clr-namespace:Taleb.Views.MainViews"
+             xmlns:StartingViews="clr-namespace:Taleb.Views.StartingViews"
+             xmlns:FluitKitControls="clr-namespace:FluidKit.Controls;assembly=FluidKit"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" 
+             d:DesignWidth="300">
+    <Grid>
+        <FluitKitControls:TransitionPresenter 
+            x:Name="TransitionContainer"
+            >
+            <StartingViews:FirstView x:Name="FView"/>
+            <StartingViews:SecondView x:Name="SView" />
+            <StartingViews:ThirdView x:Name="ThrView" />
+        </FluitKitControls:TransitionPresenter>
+    </Grid>
+</UserControl>

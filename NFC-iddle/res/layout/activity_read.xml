@@ -1,0 +1,26 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="left" >
+
+    <TextView
+        android:id="@+id/tap"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Touch Your Card Here"
+        android:textSize="25dp" />
+
+	<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+	  android:id="@+id/scroll" 
+	  android:layout_width="fill_parent"
+	  android:layout_height="wrap_content">
+	    
+	    <TableLayout
+	        android:layout_width="wrap_content"
+	        android:layout_height="match_parent" 
+	        android:id="@+id/dumpTable">
+	    </TableLayout>
+	</ScrollView>
+</LinearLayout>

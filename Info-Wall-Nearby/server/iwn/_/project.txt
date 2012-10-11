@@ -1,0 +1,62 @@
+Info Wall Nearby
+==========
+
+Android App
+===========
+1. login via OAuth (by using Janrain service)
+	Login to the Web2Py Server
+
+2. Check in by using google place API
+	1. Select nearby place 
+		Save to db that u r currently in there or nearby there.
+		Show the wall. (posts filter by that place.)		
+
+3. Write on Wall.
+		Write on that wall for place
+
+
+	
+Server side.
+============
+
+1. Web Servicess (JsonRPC|XMLRpc|CRUD)
+	1. Check in (user,location)
+		return success
+
+	2. Get posts (user, location)
+		return JSON list of current posts.
+
+	3. write post(user,location)
+		return success
+
+	4. Like Ads(user,Ads)
+		return success
+
+2. User Profile
+	1. Edit Profile
+
+3. Show the Places/Walls on map real time.
+
+
+Things to consider.
+===================
+# Spam Control.
+# Security / Privacy
+# Ease of use.
+# Enhancements/ Achievements from this project
+
+links / resources
+=================
+
+Google Places API Links
+-----------------------
+
+http://blog.brianbuikema.com/2010/08/android-development-part-1-using-googles-places-api-to-develop-compelling-location-based-mobile-applications/
+
+http://www.claytical.com/blog/android-dynamic-autocompletion-using-google-places-api
+
+http://stackoverflow.com/questions/10892325/how-to-use-google-places-api-in-android
+
+setting up mock up gps data on avd
+http://stackoverflow.com/questions/1972895/testing-gps-in-android
+

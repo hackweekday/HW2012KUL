@@ -1,0 +1,165 @@
+﻿<UserControl x:Class="Taleb.Views.MainViews.ShoutoutsView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:Surface="http://schemas.microsoft.com/surface/2008"
+             xmlns:Telerik="http://schemas.telerik.com/2008/xaml/presentation"
+             mc:Ignorable="d" 
+             d:DesignHeight="1080" 
+             d:DesignWidth="600">
+    <UserControl.Resources>
+
+        <Style TargetType="{x:Type Surface:SurfaceListBoxItem}">
+            <Setter Property="Background" Value="Transparent" />
+            <Setter Property="Margin" Value="-2" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Surface:SurfaceListBoxItem}">
+                        <Grid
+						Background="{TemplateBinding Background}"
+						>
+                            <ContentPresenter  />
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+
+
+                <Trigger Property="ItemsControl.AlternationIndex"
+				 Value="0">
+                    <Setter Property="Background"
+					Value="#666666"></Setter>
+                </Trigger>
+                <Trigger Property="ItemsControl.AlternationIndex"
+				 Value="1">
+                    <Setter Property="Background"
+					Value="#333333"></Setter>
+                </Trigger>
+            </Style.Triggers>
+
+        </Style>
+        <Storyboard x:Key="OnLoaded1">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="ShoutoutsListBox">
+                <EasingDoubleKeyFrame KeyTime="0" Value="1000"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="500"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:1.2" Value="0" />
+            </DoubleAnimationUsingKeyFrames>
+
+
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="textBlock">
+        		<EasingDoubleKeyFrame KeyTime="0" Value="-165"/>
+        		<EasingDoubleKeyFrame KeyTime="0:0:1.9" Value="3">
+        			<EasingDoubleKeyFrame.EasingFunction>
+        				<BackEase EasingMode="EaseInOut"/>
+        			</EasingDoubleKeyFrame.EasingFunction>
+        		</EasingDoubleKeyFrame>
+        	</DoubleAnimationUsingKeyFrames>
+        	<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="image">
+        		<EasingDoubleKeyFrame KeyTime="0" Value="-177"/>
+        		<EasingDoubleKeyFrame KeyTime="0:0:1.9" Value="-2.5">
+        			<EasingDoubleKeyFrame.EasingFunction>
+        				<BackEase EasingMode="EaseInOut"/>
+        			</EasingDoubleKeyFrame.EasingFunction>
+        		</EasingDoubleKeyFrame>
+        	</DoubleAnimationUsingKeyFrames>
+        	<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="image">
+        		<EasingDoubleKeyFrame KeyTime="0" Value="159"/>
+        		<EasingDoubleKeyFrame KeyTime="0:0:1.9" Value="0">
+        			<EasingDoubleKeyFrame.EasingFunction>
+        				<BackEase EasingMode="EaseInOut"/>
+        			</EasingDoubleKeyFrame.EasingFunction>
+        		</EasingDoubleKeyFrame>
+        	</DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+
+    </UserControl.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        
+        <Grid
+            Height="105"
+            Background="#107ebc"
+            >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            
+            <TextBlock x:Name="textBlock" Grid.Column="0" Text="Shoutouts!" Style="{StaticResource TitlesStyle}" RenderTransformOrigin="0.5,0.5" >
+            	<TextBlock.RenderTransform>
+            		<TransformGroup>
+            			<ScaleTransform/>
+            			<SkewTransform/>
+            			<RotateTransform/>
+            			<TranslateTransform/>
+            		</TransformGroup>
+            	</TextBlock.RenderTransform>
+            </TextBlock>
+            <Image x:Name="image" Grid.Column="1" HorizontalAlignment="Right" Source="/Taleb;component/_commonImages/I_USER.png" Stretch="Uniform" RenderTransformOrigin="0.5,0.5" >
+            	<Image.RenderTransform>
+            		<TransformGroup>
+            			<ScaleTransform/>
+            			<SkewTransform/>
+            			<RotateTransform/>
+            			<TranslateTransform/>
+            		</TransformGroup>
+            	</Image.RenderTransform>
+            </Image>
+        
+        </Grid>
+
+        <Grid
+            Grid.Row="1"
+            Height="150"
+            Background="#cccccc"
+            >
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+        
+            <Telerik:RadWatermarkTextBox 
+                Grid.Row="0" 
+                Margin="10,10,10,3" 
+                Height="50" 
+                WatermarkContent="Tap to write messages." 
+                Background="LightGray" 
+                FontSize="25"
+                />
+            
+            <Surface:SurfaceButton 
+                Grid.Row="1" 
+                Margin="10,0,10,3"  
+                Content="Send"
+                HorizontalAlignment="Right"
+                Style="{StaticResource CyanButtonStyle}" 
+                />
+
+        </Grid>
+
+        <Surface:SurfaceListBox
+            x:Name="ShoutoutsListBox"
+            Background="#666666"
+            Grid.Row="2"
+            AlternationCount="2"
+            ScrollViewer.VerticalScrollBarVisibility="Hidden"
+            ItemTemplate="{StaticResource ShoutoutsDataTemplate}"
+            RenderTransformOrigin="0.5,0.5" >
+            <Surface:SurfaceListBox.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Surface:SurfaceListBox.RenderTransform>
+        </Surface:SurfaceListBox>
+
+    </Grid>
+</UserControl>

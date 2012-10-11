@@ -1,0 +1,816 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+					xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+					xmlns:Surface="http://schemas.microsoft.com/surface/2008"
+					xmlns:Telerik="http://schemas.telerik.com/2008/xaml/presentation"
+                    xmlns:AreaViews="clr-namespace:Taleb.Views.AreaViews"
+                    
+                    >
+
+
+    
+    <Style TargetType="Image">
+        <Setter Property="RenderOptions.BitmapScalingMode" Value="NearestNeighbor" />
+
+        <Setter Property="RenderTransformOrigin" Value="0.5,0.5" />
+        
+        <Setter Property="RenderTransform">
+            <Setter.Value>
+                <ScaleTransform  ScaleX="1" ScaleY="1" />
+            </Setter.Value>
+        </Setter>
+        
+        <Style.Triggers>
+            <EventTrigger RoutedEvent="TouchUp">
+                <BeginStoryboard>
+                    <Storyboard>
+                        <DoubleAnimation Storyboard.TargetProperty="(Grid.RenderTransform).(ScaleTransform.ScaleX)" From="1" To="0.7" AutoReverse="True" Duration="0:0:0.2" />
+                        <DoubleAnimation Storyboard.TargetProperty="(Grid.RenderTransform).(ScaleTransform.ScaleY)" From="1" To="0.7" AutoReverse="True" Duration="0:0:0.2" />
+                    </Storyboard>
+                </BeginStoryboard>
+            </EventTrigger>
+        </Style.Triggers>
+    </Style>
+
+
+    <Style x:Key="TitlesStyle" TargetType="{x:Type TextBlock}">
+		<Setter Property="FontFamily" Value="Segoe UI"/>
+		<Setter Property="Foreground" Value="White"/>
+		<Setter Property="FontWeight" Value="Thin"/>
+		<Setter Property="FontSize" Value="80"/>
+	</Style>
+
+	<Style x:Key="NotificationsStyle" TargetType="{x:Type TextBlock}">
+		<Setter Property="VerticalAlignment" Value="Center" />
+		<Setter Property="HorizontalAlignment" Value="Center" />
+		<Setter Property="FontFamily" Value="Segoe UI"/>
+		<Setter Property="Foreground" Value="White"/>
+		<Setter Property="FontWeight" Value="Bold"/>
+		<Setter Property="FontWeight" Value="Thin"/>
+		<Setter Property="FontSize" Value="60"/>
+	</Style>
+
+	<Style x:Key="SubSettingsTitle" TargetType="{x:Type TextBlock}">
+		<Setter Property="VerticalAlignment" Value="Center" />
+		<Setter Property="HorizontalAlignment" Value="Center" />
+		<Setter Property="FontFamily" Value="Segoe UI"/>
+		<Setter Property="FontWeight" Value="Thin"/>
+		<Setter Property="Foreground" Value="White"/>
+		<Setter Property="FontSize" Value="15"/>
+	</Style>
+
+	<Style x:Key="NormalTextStyle" TargetType="{x:Type TextBlock}">
+		<Setter Property="FontFamily" Value="Segoe UI"/>
+		<Setter Property="Foreground" Value="White"/>
+		<Setter Property="FontWeight" Value="Thin"/>
+		<Setter Property="FontSize" Value="13"/>
+	</Style>
+
+	<Style x:Key="CyanButtonStyle" TargetType="{x:Type Surface:SurfaceButton}">
+		<Setter Property="Height" Value="50" />
+		<Setter Property="Width" Value="150" />
+		<Setter Property="VerticalContentAlignment" Value="Center" />
+		<Setter Property="HorizontalContentAlignment" Value="Center" />
+		<Setter Property="FontFamily" Value="Segoe UI"/>
+		<Setter Property="Foreground" Value="White"/>
+		<Setter Property="FontWeight" Value="Thin"/>
+		<Setter Property="FontSize" Value="20"/>
+		<Setter Property="Background" Value="#009999" />
+	</Style>
+
+	<Style x:Key="CateogriesTilesStyle" TargetType="{x:Type Grid}">
+		<Setter Property="Effect">
+			<Setter.Value>
+				<DropShadowEffect  Color="Black"  ShadowDepth="0"/>
+			</Setter.Value>
+		</Setter>
+
+		<Style.Triggers>
+			<EventTrigger RoutedEvent="TouchUp">
+				<BeginStoryboard>
+					<Storyboard>
+						<DoubleAnimation Storyboard.TargetProperty="(Grid.RenderTransform).(ScaleTransform.ScaleX)" From="1" To="0.7" AutoReverse="True" Duration="0:0:0.2" />
+						<DoubleAnimation Storyboard.TargetProperty="(Grid.RenderTransform).(ScaleTransform.ScaleY)" From="1" To="0.7" AutoReverse="True" Duration="0:0:0.2" />
+					</Storyboard>
+				</BeginStoryboard>
+			</EventTrigger>
+		</Style.Triggers>
+	</Style>
+
+	<DataTemplate x:Key="ShoutoutsDataTemplate">
+		<Grid
+			Margin="10"
+			Background="Transparent"
+			Width="500"
+			>
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="auto" />
+				<ColumnDefinition Width="*" />
+			</Grid.ColumnDefinitions>
+
+			<Grid.RowDefinitions>
+				<RowDefinition Height="auto" />
+				<RowDefinition Height="auto" />
+			</Grid.RowDefinitions>
+
+			<Image
+				Margin="2"
+				Width="90"
+				Height="90"
+				Grid.RowSpan="2"
+				Source="/Taleb;component/_commonImages/I_USER.png"
+				VerticalAlignment="Top"
+				/>
+			
+			<TextBlock
+				Grid.Row="0"
+				Width="380"
+				Grid.Column="1"
+				Style="{StaticResource NormalTextStyle}"
+				VerticalAlignment="Top"
+				TextWrapping="WrapWithOverflow"
+				TextAlignment="Left"
+				Text="Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat."
+				/>
+			
+			<TextBlock
+				Margin="2"
+				Width="380"
+				Grid.Row="1"
+				Grid.Column="1"
+				VerticalAlignment="Top"
+				TextAlignment="Right"
+				Style="{StaticResource NormalTextStyle}"
+				Text="Sent by: Username A"
+				/>
+			
+		</Grid>
+	</DataTemplate>
+
+    <DataTemplate x:Key="FriendsChatDataTemplate">
+        <Grid
+			Margin="10"
+			Background="Transparent"
+			Width="500"
+			>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+            </Grid.RowDefinitions>
+
+            <Image
+				Margin="2"
+				Width="90"
+				Height="90"
+				Grid.RowSpan="2"
+                RenderOptions.BitmapScalingMode="HighQuality"
+				Source="/Taleb;component/_commonImages/I_USER.png"
+				VerticalAlignment="Top"
+				/>
+
+            <TextBlock
+				Grid.Row="0"
+				Width="380"
+				Grid.Column="1"
+                Foreground="Black"
+				Style="{StaticResource NormalTextStyle}"
+				VerticalAlignment="Top"
+				TextWrapping="WrapWithOverflow"
+				TextAlignment="Left"
+				Text="Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam"
+				/>
+
+            <TextBlock
+				Margin="2"
+				Width="380"
+				Grid.Row="1"
+				Grid.Column="1"
+                Foreground="Black"
+				VerticalAlignment="Top"
+				TextAlignment="Right"
+				Style="{StaticResource NormalTextStyle}"
+				Text="Sent by: Username B"
+				/>
+
+        </Grid>
+    </DataTemplate>
+
+    <DataTemplate x:Key="FriendProfileDocsTileTemplate">
+        <Telerik:RadFluidContentControl ContentChangeMode="Manual"
+											State="Normal"
+											TransitionDuration="0:0:1">
+            <Telerik:RadFluidContentControl.Content>
+
+                <Grid
+                        Height="300"
+                        Width="380"
+                        Background="#ffffff"
+                        >
+                    <StackPanel Orientation="Vertical">
+                        <TextBlock
+				            Margin="5"
+				            Grid.Row="0"
+				            VerticalAlignment="Top"
+				            TextAlignment="Left"
+                            FontSize="15"
+                            FontWeight="Bold"
+                            TextWrapping="Wrap"
+                            Foreground="Black"
+				            Style="{StaticResource NormalTextStyle}"
+				            Text="Shared Document"
+				            />
+
+                        <TextBlock
+				            Margin="5"
+				            Grid.Row="1"
+				            VerticalAlignment="Top"
+				            TextAlignment="Left"
+                            FontSize="12"
+                            Foreground="Black"
+                            TextWrapping="Wrap"
+				            Style="{StaticResource NormalTextStyle}"
+				            Text="Lorem ipsum dolor sit amet, consectetuer adipiscing elit, orem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat."
+				            />
+
+
+                    </StackPanel>
+
+                    <Surface:ElementMenu
+                             Name="MainMenu"
+                             ActivationMode="AlwaysActive"
+                             ActivationHost="{Binding ElementName=MenuGrid}"
+                        Margin="5,100,5,5"
+                             >
+                        <Surface:ElementMenuItem Header="To Dropbox" Foreground="White" FontFamily="Segoe UI" Background="#33ccff" FontWeight="Bold" FontSize="11"  />
+                        <Surface:ElementMenuItem Header="To G-Drive" Foreground="White" FontFamily="Segoe UI" Background="#33ccff" FontWeight="Bold" FontSize="11"  />
+                        <Surface:ElementMenuItem Header="To SkyDrive" Foreground="White" FontFamily="Segoe UI" Background="#33ccff" FontWeight="Bold" FontSize="11"  />
+                        <Surface:ElementMenuItem Header="To My Docs" Foreground="White" FontFamily="Segoe UI" Background="#33ccff" FontWeight="Bold" FontSize="11"  />
+                    </Surface:ElementMenu>
+
+                </Grid>
+            </Telerik:RadFluidContentControl.Content>
+            <Telerik:RadFluidContentControl.LargeContent>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto" />
+                        <RowDefinition Height="auto" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+
+                    <StackPanel
+                        Margin="5"
+                        Grid.Row="0"
+                        Orientation="Horizontal"
+                        >
+                        <Telerik:RadWatermarkTextBox Background="#cccccc" FontSize="20" Width="400" WatermarkContent="Enter Document Title" Margin="5"/>
+                        <Surface:SurfaceButton Style="{StaticResource CyanButtonStyle}" Width="100" Height="35" Content="Done" FontSize="15" Margin="5"/>
+                    </StackPanel>
+
+
+                    <StackPanel
+                        Margin="5"
+                        Orientation="Horizontal"
+                            Grid.Row="1"
+                        >
+                        <Image
+                            RenderOptions.BitmapScalingMode="HighQuality"
+                            Margin="3"
+                            Width="35"
+                            Height="35"
+                            Source="/Taleb;component/_CommonImages/Editor_Align_Center.jpg"
+                            />
+                        <Image
+                            RenderOptions.BitmapScalingMode="HighQuality"
+                            
+                            Margin="3"
+                            Width="35"
+                            Height="35"
+                            Source="/Taleb;component/_CommonImages/Editor_Align_Left.jpg"
+                            />
+                        <Image
+                            Margin="3"
+                            RenderOptions.BitmapScalingMode="HighQuality"
+                            
+                            Width="35"
+                            Height="35"
+                            Source="/Taleb;component/_CommonImages/Editor_Align_Right.jpg"
+                            />
+                        <Image
+                            RenderOptions.BitmapScalingMode="HighQuality"
+                            Margin="3"
+                            Width="35"
+                            Height="35"
+                            Source="/Taleb;component/_CommonImages/Editor_Attachment.jpg"
+                            />
+                        <Image
+                            RenderOptions.BitmapScalingMode="HighQuality"
+                            Margin="3"
+                            Width="35"
+                            Height="35"
+                            Source="/Taleb;component/_CommonImages/Editor_Bold.jpg"
+                            />
+                        <Image
+                            RenderOptions.BitmapScalingMode="HighQuality"
+                            Margin="3"
+                            Width="35"
+                            Height="35"
+                            Source="/Taleb;component/_CommonImages/Editor_Checklist.jpg"
+                            />
+                        <Image
+                            RenderOptions.BitmapScalingMode="HighQuality"
+                            Margin="3"
+                            Width="35"
+                            Height="35"
+                            Source="/Taleb;component/_CommonImages/Editor_Marker.jpg"
+                            />
+                        <Image
+                            RenderOptions.BitmapScalingMode="HighQuality"
+                            Margin="3"
+                            Width="35"
+                            Height="35"
+                            Source="/Taleb;component/_CommonImages/Editor_Underline.jpg"
+                            />
+
+                        <Surface:SurfaceButton Style="{StaticResource CyanButtonStyle}" Width="100" Height="35" Content="Section A" FontSize="15" Margin="5"/>
+                        <Surface:SurfaceButton Style="{StaticResource CyanButtonStyle}" Width="100" Height="35" Content="Semester A" FontSize="15" Margin="5"/>
+
+                    </StackPanel>
+
+                    <TextBlock
+                        Grid.Row="2"
+                        Margin="5"
+					    TextWrapping="Wrap"
+					    >
+							Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. Typi non habent claritatem insitam; est usus legentis in iis qui facit eorum claritatem. Investigationes demonstraverunt lectores legere me lius quod ii legunt saepius. Claritas est etiam processus dynamicus, qui sequitur mutationem consuetudium lectorum. Mirum est notare quam littera gothica, quam nunc putamus parum claram, anteposuerit litterarum formas humanitatis per seacula quarta decima et quinta decima. Eodem modo typi, qui nunc nobis videntur parum clari, fiant sollemnes in futurum.
+                    </TextBlock>
+
+                </Grid>
+            </Telerik:RadFluidContentControl.LargeContent>
+            <Telerik:RadFluidContentControl.SmallContent>
+                <Grid
+                        Height="200"
+                        Width="200"
+                        Background="#ffffff"
+                        >
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto" />
+                        <RowDefinition Height="auto" />
+                    </Grid.RowDefinitions>
+
+                    <TextBlock
+				            Margin="8"
+				            Grid.Row="0"
+				            VerticalAlignment="Top"
+				            TextAlignment="Left"
+                            FontSize="15"
+                            FontWeight="Bold"
+                            TextWrapping="Wrap"
+                            Foreground="Black"
+				            Style="{StaticResource NormalTextStyle}"
+				            Text="Shared Document"
+				            />
+
+                    <TextBlock
+				            Margin="10"
+				            Grid.Row="1"
+				            VerticalAlignment="Top"
+				            TextAlignment="Left"
+                            FontSize="12"
+                            Foreground="Black"
+                            TextWrapping="Wrap"
+				            Style="{StaticResource NormalTextStyle}"
+				            Text="Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat."
+				            />
+
+                </Grid>
+            </Telerik:RadFluidContentControl.SmallContent>
+        </Telerik:RadFluidContentControl>
+    </DataTemplate>
+
+    <DataTemplate x:Key="CalendarDatesDataTemplate">
+        <StackPanel
+            Width="400"
+            Height="120"
+            Background="#eeeded"
+            >
+            <TextBlock
+				            Margin="2"
+				            VerticalAlignment="Top"
+				            TextAlignment="Left"
+                            FontSize="15"
+                            FontWeight="Bold"
+                            TextWrapping="Wrap"
+                            Foreground="Black"
+				            Style="{StaticResource NormalTextStyle}"
+				            Text="All Day"
+				            />
+            <TextBlock
+				            Margin="2"
+				            VerticalAlignment="Top"
+				            TextAlignment="Left"
+                            FontSize="12"
+                            TextWrapping="Wrap"
+                            Foreground="#1173aa"
+				            Style="{StaticResource NormalTextStyle}"
+				            Text="Event Titlte"
+				            />
+            <TextBlock
+				            Margin="2"
+				            VerticalAlignment="Top"
+				            TextAlignment="Left"
+                            FontSize="10"
+                            TextWrapping="Wrap"
+                            Foreground="Black"
+				            Style="{StaticResource NormalTextStyle}"
+				            Text="3 days (Intercontinental Kuala Lumpur)"
+				            />
+            <TextBlock
+				            Margin="2"
+				            VerticalAlignment="Top"
+				            TextAlignment="Left"
+                            FontSize="15"
+                            TextWrapping="Wrap"
+                            Foreground="Black"
+				            Style="{StaticResource NormalTextStyle}"
+				            Text="Lorem ipsum dolor sit amet, consectetuer adipiscing elit"
+				            />
+        </StackPanel>
+    </DataTemplate>
+
+    <DataTemplate x:Key="AreaFriendsDataTemplate">
+        <Grid
+			Margin="10"
+			Background="#1c88c5"
+            Height="75"
+			Width="250"
+			>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+            </Grid.RowDefinitions>
+
+            <Image
+				Margin="2"
+				Width="40"
+				Height="40"
+				Grid.RowSpan="2"
+				Source="/Taleb;component/_commonImages/I_USER.png"
+                RenderOptions.BitmapScalingMode="HighQuality"
+				VerticalAlignment="Top"
+				/>
+
+            <TextBlock
+				Grid.Row="0"
+				Grid.Column="1"
+				Style="{StaticResource NormalTextStyle}"
+				VerticalAlignment="Top"
+				TextAlignment="Left"
+                FontSize="12"
+                FontWeight="Bold"
+                Text="{Binding Name}"
+				/>
+
+            <StackPanel
+                Grid.Row="1"
+				Grid.Column="1"
+                Orientation="Horizontal"
+                >
+                <TextBlock
+				Margin="2"
+				VerticalAlignment="Top"
+				TextAlignment="Left"
+                    FontWeight="Bold"
+                FontSize="12"
+                    
+				Style="{StaticResource NormalTextStyle}"
+				Text="Student ID: "
+				/>
+                <TextBlock
+				Margin="2"
+				VerticalAlignment="Top"
+				TextAlignment="Left"
+                FontSize="12"
+                    
+				Style="{StaticResource NormalTextStyle}"
+				Text="{Binding ID}"
+				/>
+            </StackPanel>
+
+
+        </Grid>
+    </DataTemplate>
+
+    <DataTemplate x:Key="FriendsDataTemplate">
+		<Grid
+			Margin="10"
+			Background="#1c88c5"
+			Width="300"
+			>
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="auto" />
+				<ColumnDefinition Width="*" />
+			</Grid.ColumnDefinitions>
+
+			<Grid.RowDefinitions>
+				<RowDefinition Height="auto" />
+				<RowDefinition Height="auto" />
+			</Grid.RowDefinitions>
+
+			<Image
+				Margin="2"
+				Width="90"
+				Height="90"
+				Grid.RowSpan="2"
+				Source="/Taleb;component/_commonImages/I_USER.png"
+                RenderOptions.BitmapScalingMode="HighQuality"
+				VerticalAlignment="Top"
+				/>
+
+			<TextBlock
+				Grid.Row="0"
+				Grid.Column="1"
+				Style="{StaticResource NormalTextStyle}"
+				VerticalAlignment="Top"
+				TextAlignment="Left"
+                FontSize="18"
+                FontWeight="Bold"
+                Text="{Binding Name}"
+				/>
+
+            <StackPanel
+                Grid.Row="1"
+				Grid.Column="1"
+                Orientation="Horizontal"
+                >
+                <TextBlock
+				Margin="2"
+				VerticalAlignment="Top"
+				TextAlignment="Left"
+                    FontWeight="Bold"
+				Style="{StaticResource NormalTextStyle}"
+				Text="Student ID: "
+				/>
+                <TextBlock
+				Margin="2"
+				VerticalAlignment="Top"
+				TextAlignment="Left"
+				Style="{StaticResource NormalTextStyle}"
+				Text="{Binding ID}"
+				/>
+            </StackPanel>
+
+
+		</Grid>
+	</DataTemplate>
+
+	<DataTemplate x:Key="DocsTileTemplate">
+		<Telerik:RadFluidContentControl ContentChangeMode="Manual"
+											State="Normal"
+											TransitionDuration="0:0:1">
+			<Telerik:RadFluidContentControl.Content>
+		
+                    <Grid
+                        Height="250"
+                        Width="330"
+                        Background="#ffffff"
+                        >
+                    <StackPanel Orientation="Vertical">
+                        <TextBlock
+				            Margin="5"
+				            Grid.Row="0"
+				            VerticalAlignment="Top"
+				            TextAlignment="Left"
+                            FontSize="15"
+                            FontWeight="Bold"
+                            TextWrapping="Wrap"
+                            Foreground="Black"
+				            Style="{StaticResource NormalTextStyle}"
+				            Text="Shared Document"
+				            />
+
+                        <TextBlock
+				            Margin="5"
+				            Grid.Row="1"
+				            VerticalAlignment="Top"
+				            TextAlignment="Left"
+                            FontSize="12"
+                            Foreground="Black"
+                            TextWrapping="Wrap"
+				            Style="{StaticResource NormalTextStyle}"
+				            Text="Lorem ipsum dolor sit amet, consectetuer adipiscing elit, orem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat."
+				            />
+
+                    </StackPanel>
+
+                    <Surface:ElementMenu
+                             Name="MainMenu"
+                             ActivationMode="AlwaysActive"
+                             ActivationHost="{Binding ElementName=MenuGrid}"
+                        Margin="5,100,5,5"
+                             >
+                        <Surface:ElementMenuItem Header="To Dropbox" Foreground="White" FontFamily="Segoe UI" Background="#33ccff" FontWeight="Bold" FontSize="11"  />
+                        <Surface:ElementMenuItem Header="To G-Drive" Foreground="White" FontFamily="Segoe UI" Background="#33ccff" FontWeight="Bold" FontSize="11"  />
+                        <Surface:ElementMenuItem Header="To SkyDrive" Foreground="White" FontFamily="Segoe UI" Background="#33ccff" FontWeight="Bold" FontSize="11"  />
+                        <Surface:ElementMenuItem Header="To Evernote" Foreground="White" FontFamily="Segoe UI" Background="#33ccff" FontWeight="Bold" FontSize="11"  />
+                        <Surface:ElementMenuItem Header="To My Docs" Foreground="White" FontFamily="Segoe UI" Background="#33ccff" FontWeight="Bold" FontSize="11"  />
+                    </Surface:ElementMenu>
+
+                </Grid>
+			</Telerik:RadFluidContentControl.Content>
+			<Telerik:RadFluidContentControl.LargeContent>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto" />
+                        <RowDefinition Height="auto" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    
+                    <StackPanel
+                        Margin="5"
+                        Grid.Row="0"
+                        Orientation="Horizontal"
+                        >
+                        <Telerik:RadWatermarkTextBox Background="#cccccc" FontSize="20" Width="400" WatermarkContent="Enter Document Title" Margin="5"/>
+                        <Surface:SurfaceButton Style="{StaticResource CyanButtonStyle}" Width="100" Height="35" Content="Done" FontSize="15" Margin="5"/>
+                    </StackPanel>
+
+                  
+                        <StackPanel
+                        Margin="5"
+                        Orientation="Horizontal"
+                            Grid.Row="1"
+                        >
+                            <Image
+                            Margin="3"
+                            Width="60"
+                            Height="60"
+                            Source="/Taleb;component/_CommonImages/Editor_Align_Center.jpg"
+                            />
+                            <Image
+                            Margin="3"
+                            Width="60"
+                            Height="60"
+                            Source="/Taleb;component/_CommonImages/Editor_Align_Left.jpg"
+                            />
+                            <Image
+                            Margin="3"
+                            
+                            Width="60"
+                            Height="60"
+                            Source="/Taleb;component/_CommonImages/Editor_Align_Right.jpg"
+                            />
+                            <Image
+                            Margin="3"
+                            Width="60"
+                            Height="60"
+                            Source="/Taleb;component/_CommonImages/Editor_Attachment.jpg"
+                            />
+                            <Image
+                            Margin="3"
+                            Width="60"
+                            Height="60"
+                            Source="/Taleb;component/_CommonImages/Editor_Bold.jpg"
+                            />
+                            <Image
+                            Margin="3"
+                            Width="60"
+                            Height="60"
+                            Source="/Taleb;component/_CommonImages/Editor_Checklist.jpg"
+                            />
+                            <Image
+                            Margin="3"
+                            Width="60"
+                            Height="60"
+                            Source="/Taleb;component/_CommonImages/Editor_Marker.jpg"
+                            />
+                            <Image
+                            Margin="3"
+                            Width="60"
+                            Height="60"
+                            Source="/Taleb;component/_CommonImages/Editor_Underline.jpg"
+                            />
+
+                            <Surface:SurfaceButton Style="{StaticResource CyanButtonStyle}" Width="100" Height="35" Content="Section A" FontSize="15" Margin="5"/>
+                            <Surface:SurfaceButton Style="{StaticResource CyanButtonStyle}" Width="100" Height="35" Content="Semester A" FontSize="15" Margin="5"/>
+
+                        </StackPanel>
+
+                    <TextBlock
+                        Grid.Row="2"
+                        Margin="5"
+					    TextWrapping="Wrap"
+					    >
+							Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. Typi non habent claritatem insitam; est usus legentis in iis qui facit eorum claritatem. Investigationes demonstraverunt lectores legere me lius quod ii legunt saepius. Claritas est etiam processus dynamicus, qui sequitur mutationem consuetudium lectorum. Mirum est notare quam littera gothica, quam nunc putamus parum claram, anteposuerit litterarum formas humanitatis per seacula quarta decima et quinta decima. Eodem modo typi, qui nunc nobis videntur parum clari, fiant sollemnes in futurum.
+                    </TextBlock>
+                    
+                </Grid>
+            </Telerik:RadFluidContentControl.LargeContent>
+            <Telerik:RadFluidContentControl.SmallContent>
+                <Grid
+                        Height="200"
+                        Width="200"
+                        Background="#ffffff"
+                        >
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto" />
+                        <RowDefinition Height="auto" />
+                    </Grid.RowDefinitions>
+
+                    <TextBlock
+				            Margin="8"
+				            Grid.Row="0"
+				            VerticalAlignment="Top"
+				            TextAlignment="Left"
+                            FontSize="15"
+                            FontWeight="Bold"
+                            TextWrapping="Wrap"
+                            Foreground="Black"
+				            Style="{StaticResource NormalTextStyle}"
+				            Text="Shared Document"
+				            />
+
+                    <TextBlock
+				            Margin="10"
+				            Grid.Row="1"
+				            VerticalAlignment="Top"
+				            TextAlignment="Left"
+                            FontSize="12"
+                            Foreground="Black"
+                            TextWrapping="Wrap"
+				            Style="{StaticResource NormalTextStyle}"
+				            Text="Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat."
+				            />
+
+                </Grid>
+            </Telerik:RadFluidContentControl.SmallContent>
+        </Telerik:RadFluidContentControl>
+	</DataTemplate>
+
+
+    <DataTemplate x:Key="AreasTileTemplate">
+        <Telerik:RadFluidContentControl ContentChangeMode="Manual"
+											State="Normal"
+											TransitionDuration="0:0:1">
+            <Telerik:RadFluidContentControl.Content>
+                <Grid
+                    Height="300"
+                    Width="400"
+                    Background="#ffffff"
+                    >
+                    <StackPanel Orientation="Vertical">
+                        <TextBlock
+				            Margin="10"
+				            Grid.Row="0"
+				            VerticalAlignment="Top"
+				            TextAlignment="Left"
+                            FontSize="15"
+                            FontWeight="Bold"
+                            TextWrapping="Wrap"
+                            Foreground="Black"
+				            Style="{StaticResource NormalTextStyle}"
+				            Text="Area"
+				            />
+
+                        <TextBlock
+				            Margin="10"
+				            VerticalAlignment="Top"
+				            TextAlignment="Left"
+                            FontSize="12"
+                            Foreground="Black"
+                            TextWrapping="Wrap"
+				            Style="{StaticResource NormalTextStyle}"
+				            Text="Lorem ipsum dolor sit amet, consectetuer adipiscing elit, orem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat."
+				            />
+
+                        <Surface:SurfaceButton 
+                            AreaViews:OneAreaView.Selected="True" 
+                            Style="{StaticResource CyanButtonStyle}" 
+                            Width="100" 
+                            Height="35" 
+                            Content="Public Access" 
+                            FontSize="15" 
+                            Margin="5"/>
+
+                    </StackPanel>
+                </Grid>
+            </Telerik:RadFluidContentControl.Content>
+        </Telerik:RadFluidContentControl>
+    </DataTemplate>
+
+    <DataTemplate x:Key="headerTemplate">
+		<StackPanel Orientation="Horizontal">
+			<TextBlock Text="Document" />
+
+        </StackPanel>
+	</DataTemplate>
+
+</ResourceDictionary>

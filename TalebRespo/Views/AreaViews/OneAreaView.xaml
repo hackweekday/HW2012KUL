@@ -1,0 +1,150 @@
+﻿<UserControl x:Class="Taleb.Views.AreaViews.OneAreaView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+                                  xmlns:Telerik="http://schemas.telerik.com/2008/xaml/presentation"
+        xmlns:Surface="http://schemas.microsoft.com/surface/2008"
+        xmlns:MainViews="clr-namespace:Taleb.Views.MainViews"
+        xmlns:StartingViews="clr-namespace:Taleb.Views.StartingViews"
+        xmlns:FriendsViews="clr-namespace:Taleb.Views.FriendsViews"
+        xmlns:FluitKitControls="clr-namespace:FluidKit.Controls;assembly=FluidKit"
+             mc:Ignorable="d" 
+             d:DesignHeight="1000" d:DesignWidth="1500">
+    <Grid >
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="6.3*" />
+            <ColumnDefinition Width="3.7*" />
+        </Grid.ColumnDefinitions>
+
+
+        <Grid >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="*" />
+           </Grid.RowDefinitions>
+
+            <StackPanel 
+            Grid.Row="0"  
+            Orientation="Horizontal" 
+            VerticalAlignment="Top">
+                <Image 
+                x:Name="BackImage"
+                Margin="3,0,3,3"
+                Width="114"
+                Height="113"
+                Source="/Taleb;component/_commonImages/back.png" 
+                Stretch="Uniform" />
+
+                <TextBlock
+                    Margin="10, 0,10,10"
+                    FontWeight="Thin"
+				    Style="{StaticResource TitlesStyle}"
+				    Text="Areas"
+				    />
+            </StackPanel>
+            
+            <Telerik:RadTileView 
+                x:Name="AreasTileView"
+                Grid.Row="1"
+                Margin="20"
+		        ContentTemplate="{StaticResource AreasTileTemplate}"
+                ItemTemplate="{StaticResource headerTemplate}"
+                MinimizedItemsPosition="Left"
+                MaximizeMode="Zero"
+                RowHeight="300"
+                ColumnWidth="400"
+		        />
+        </Grid>
+        
+        <Grid Grid.Column="1" Background="#eeeded">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="*" />
+
+            </Grid.RowDefinitions>
+
+            <StackPanel Grid.Row="0">
+                <TextBlock
+                    Margin="10, 0,10,10"
+                    FontWeight="Thin"
+                    Foreground="Black"
+                    FontSize="50"
+				    Style="{StaticResource TitlesStyle}"
+				    Text="create new area"
+				    />
+                
+                <Surface:SurfaceButton 
+                    Style="{StaticResource CyanButtonStyle}" 
+                    Margin="0,0,10,0"
+                    Width="100" 
+                    Height="35" 
+                    Content="Create" 
+                    FontSize="15" 
+                    HorizontalAlignment="Right"
+                    />
+
+                <Telerik:RadWatermarkTextBox Background="#cccccc" FontSize="20" Width="530" HorizontalAlignment="Left" WatermarkContent="Area Name" Margin="5, 20, 5, 5"/>
+                <Telerik:RadWatermarkTextBox Background="#cccccc" FontSize="20" Width="533" HorizontalAlignment="Left" WatermarkContent="Area Description" Margin="5, 20, 5, 5" Height="180" />
+
+            </StackPanel>
+
+            <StackPanel Grid.Row="1">
+
+                <StackPanel
+                    Orientation="Horizontal"
+                    >
+                    <TextBlock
+                    Margin="10"
+                    FontWeight="Thin"
+                    Foreground="Black"
+                    FontSize="25"
+				    Style="{StaticResource TitlesStyle}"
+				    Text="create new area"
+				    />
+       
+                    <Telerik:RadComboBox
+                        Margin="10"
+                        SelectedIndex="0"
+                        Telerik:StyleManager.Theme="Metro"
+                        Height="35"
+                        FontSize="20"
+                        FontFamily="Segoe UI"
+                        FontWeight="Thin"
+                        HorizontalAlignment="Center"
+                        >
+                        <Telerik:RadComboBoxItem>
+                            Public Access
+                        </Telerik:RadComboBoxItem>
+                        <Telerik:RadComboBoxItem>
+                            Private Access
+                        </Telerik:RadComboBoxItem>
+                    </Telerik:RadComboBox>
+                </StackPanel>
+
+            </StackPanel>
+
+            <Surface:SurfaceListBox
+			Grid.Row="2"
+			Margin="3"
+			x:Name="FriendsListBox"
+			Background="Transparent"
+			HorizontalAlignment="Center"
+			ItemTemplate="{StaticResource AreaFriendsDataTemplate}"
+			ScrollViewer.HorizontalScrollBarVisibility="Hidden"
+            ItemsSource="{Binding Friends}"
+			>
+                <Surface:SurfaceListBox.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <WrapPanel Background="Transparent" HorizontalAlignment="Center"  Width="500"  ItemWidth="250" />
+                    </ItemsPanelTemplate>
+                </Surface:SurfaceListBox.ItemsPanel>
+            </Surface:SurfaceListBox>
+
+        </Grid>
+
+        
+
+    </Grid>
+</UserControl>

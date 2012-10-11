@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  	<script src="js/objectdetect.js"></script>
+	<script src="js/objectdetect.frontalface.js"></script>
+	<script src="js/objectdetect.eye.js"></script>
+	<script src="js/smoother.js"></script>
+	<script src="js/jquery.js"></script>
+	<script src="js/jquery.objectdetect.js"></script>
+  	<script type="text/javascript" src="js/demo.js"></script>
+  	<link href="css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+  </head>
+  <body>
+
+<div class="row">
+<div class="span8"><video id="screenshot-stream" class="videostream" autoplay="" style="margin-top: 10px;"></video></div>
+<div class="span4 offset1">
+<div class="btn-group">
+<button id="screenshot-button" class="btn">Capture</button>
+<button id="screenshot-stop-button" class="btn">Stop</button>
+<button id="monitor-button" class="btn" style="margin-top: 10px; margin-bottom: 10px;">Start Monitor </button>
+</div>
+<div id="notification"></div>
+
+<canvas id="screenshot-canvas" style=""></canvas>
+<canvas id="screenshot2-canvas" style=""></canvas>
+</div>
+
+</div>
+
+
+<div>
+<p></p>
+</div>
+  </body>
+</html>

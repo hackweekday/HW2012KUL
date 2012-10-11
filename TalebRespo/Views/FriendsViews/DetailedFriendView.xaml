@@ -1,0 +1,143 @@
+﻿<UserControl x:Class="Taleb.Views.FriendsViews.DetailedFriendView"
+       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:Telerik="http://schemas.telerik.com/2008/xaml/presentation"
+             xmlns:Surface="http://schemas.microsoft.com/surface/2008"
+             xmlns:MainViews="clr-namespace:Taleb.Views.MainViews"
+             xmlns:FriendsViews="clr-namespace:Taleb.Views.FriendsViews"
+             xmlns:FluitKitControls="clr-namespace:FluidKit.Controls;assembly=FluidKit"
+             mc:Ignorable="d" 
+             d:DesignHeight="600" d:DesignWidth="1000">
+    <UserControl.Resources>
+
+        <Style TargetType="{x:Type Surface:SurfaceListBoxItem}">
+            <Setter Property="Background" Value="Transparent" />
+            <Setter Property="Margin" Value="-2" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Surface:SurfaceListBoxItem}">
+                        <Grid
+                            Background="{TemplateBinding Background}"
+						>
+                            <ContentPresenter  />
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+
+
+                <Trigger Property="ItemsControl.AlternationIndex"
+				 Value="0">
+                    <Setter Property="Background"
+					Value="#ccccff"></Setter>
+                </Trigger>
+                <Trigger Property="ItemsControl.AlternationIndex"
+				 Value="1">
+                    <Setter Property="Background"
+					Value="#dedbdb"></Setter>
+                </Trigger>
+            </Style.Triggers>
+
+        </Style>
+
+    </UserControl.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="6*" />
+            <ColumnDefinition Width="4*" />
+        </Grid.ColumnDefinitions>
+
+        
+        <Grid Grid.Column="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            
+            <StackPanel 
+                Grid.Row="0" 
+                Orientation="Horizontal" 
+                VerticalAlignment="Top">
+                <Image 
+                    x:Name="BackImage"
+                    Margin="3,0,3,3"
+                    Width="114"
+                    Height="113"
+                    Source="/Taleb;component/_commonImages/back.png" 
+                    Stretch="Uniform" />
+
+                <TextBlock
+                    Margin="10, 0,10,10"
+                    FontWeight="Thin"
+				    Style="{StaticResource TitlesStyle}"
+				    Text="Profile"
+				    />
+            </StackPanel>
+
+            <Telerik:RadTileView 
+                x:Name="DocsTileView"
+                Grid.Row="1"
+                Margin="10"
+		        ContentTemplate="{StaticResource FriendProfileDocsTileTemplate}"
+                ItemTemplate="{StaticResource headerTemplate}"
+                MaximizeMode="ZeroOrOne"
+		        PreservePositionWhenMaximized="True"
+                MinimizedItemsPosition="Left"
+                RowHeight="300"
+                ColumnWidth="380"    
+                MinimizedColumnWidth="200"
+                MinimizedRowHeight="200" 
+		        />
+
+        </Grid>
+        
+        <Grid
+            Grid.Column="1"
+            >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"  />
+                <RowDefinition Height="auto" />
+            </Grid.RowDefinitions>
+
+
+            <Surface:SurfaceListBox
+                Grid.Row="0"
+                x:Name="ChatListBox"
+                Background="#dedbdb"
+                AlternationCount="2"
+                ScrollViewer.VerticalScrollBarVisibility="Hidden"
+                ItemTemplate="{StaticResource FriendsChatDataTemplate}"
+                />
+
+            <StackPanel
+                Grid.Row="1"
+                >
+                <Telerik:RadWatermarkTextBox 
+                Grid.Row="0" 
+                Margin="10,10,10,3" 
+                Height="50" 
+                WatermarkContent="Tap to write messages." 
+                Background="LightGray" 
+                FontSize="25"
+                >
+                    <Telerik:RadWatermarkTextBox.Effect>
+                        <DropShadowEffect Color="Black" BlurRadius="5" ShadowDepth="0"   />
+                    </Telerik:RadWatermarkTextBox.Effect>
+                </Telerik:RadWatermarkTextBox>
+
+                <Surface:SurfaceButton 
+                Grid.Row="1" 
+                Margin="20,5,20,20"  
+                Content="Send"
+                HorizontalAlignment="Right"
+                Style="{StaticResource CyanButtonStyle}" 
+                />
+            </StackPanel>
+
+        </Grid>
+
+    </Grid>
+</UserControl>

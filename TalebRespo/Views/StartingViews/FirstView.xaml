@@ -1,0 +1,80 @@
+﻿<UserControl x:Class="Taleb.Views.StartingViews.FirstView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             VerticalAlignment="Center"
+             HorizontalAlignment="Center"
+
+             
+             >
+    <Canvas Height="446" Width="580"
+        >
+
+
+        <TextBlock
+                VerticalAlignment="Top"
+                TextAlignment="Left"
+                Style="{StaticResource TitlesStyle}"
+                Text="Getting Started!"
+                />
+
+        <TextBlock
+                VerticalAlignment="Top"
+                TextAlignment="Left"
+                Style="{StaticResource NormalTextStyle}"
+                Text="Choose an account to access Taleb!" Canvas.Left="8" Canvas.Top="110.406" 
+                />
+        
+        <Canvas
+            Background="White" Height="282" Width="520" Canvas.Left="31" Canvas.Top="143.696"
+            >
+   
+            <Image 
+                 x:Name="GPlusImage"
+                Grid.Column="0"
+                Width="200"
+                Height="200"
+			    Source="/Taleb;component/_commonImages/GooglePlus_Icon.jpg" Canvas.Left="300" Canvas.Top="8"
+			/>
+
+            <TextBlock
+                Grid.Column="1"
+                TextAlignment="Left"
+                Style="{StaticResource NormalTextStyle}"
+                Text="Or"
+                FontSize="18"
+                Foreground="Black" Canvas.Left="244" Canvas.Top="100"
+                />
+
+            <Image 
+                x:Name="FBImage"
+                Grid.Column="2"
+                Width="200"
+                Height="200"
+			    Source="/Taleb;component/_commonImages/Facebook_Icon.jpg" Canvas.Top="8" Canvas.Left="16"
+			    />
+
+            <TextBlock
+                Grid.Column="1"
+                TextAlignment="Left"
+                Style="{StaticResource NormalTextStyle}"
+                Text="Facebook"
+                FontSize="18"
+                Foreground="Black" Canvas.Left="81" Canvas.Top="212"
+                />
+
+
+            <TextBlock
+                Grid.Column="1"
+                TextAlignment="Left"
+                Style="{StaticResource NormalTextStyle}"
+                Text="Google+"
+                FontSize="18"
+                Foreground="Black" Canvas.Left="369" Canvas.Top="212"
+                />
+
+        </Canvas>
+    </Canvas>
+</UserControl>

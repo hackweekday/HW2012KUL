@@ -1,0 +1,98 @@
+<html>
+
+<body>
+
+<script>
+// Dean Edwards/Matthias Miller/John Resig
+function onFailSoHard(e) {
+    if (e.code == 1) {
+        alert('User denied access to their camera');
+    } else {
+        alert('getUserMedia() not supported in your browser.');
+    }
+}
+function runVideo() {
+    var video = document.querySelector('#screenshot-stream');
+    var button = document.querySelector('#screenshot-button');
+    var canvas = document.querySelector('#screenshot-canvas');
+    var img = document.querySelector('#screenshot');
+    var ctx = canvas.getContext('2d');
+    var localMediaStream = null;
+
+    function sizeCanvas() {
+        setTimeout(function () {
+            canvas.width = video.videoWidth;
+            canvas.height = video.videoHeight;
+            img.height = video.videoHeight;
+            img.width = video.videoWidth;
+        }, 50);
+    }
+
+    function snapshot() {
+        ctx.drawImage(video, 0, 0);
+        img.src = canvas.toDataURL('image/webp');
+    }
+    button.addEventListener('click', function (e) {
+        if (localMediaStream) {
+            snapshot();
+            return;
+        }
+        if (navigator.getUserMedia) {
+            navigator.getUserMedia('video', function (stream) {
+                video.src = stream;
+                localMediaStream = stream;
+                sizeCanvas();
+                button.textContent = 'Take Shot';
+            }, onFailSoHard);
+        } else if (navigator.webkitGetUserMedia) {
+            navigator.webkitGetUserMedia({
+                video: true
+            }, function (stream) {
+                video.src = window.webkitURL.createObjectURL(stream);
+                localMediaStream = stream;
+                sizeCanvas();
+                button.textContent = 'Take Shot';
+            }, onFailSoHard);
+        } else {
+            onFailSoHard({
+                target: video
+            });
+        }
+    }, false);
+    video.addEventListener('click', snapshot, false);
+    document.querySelector('#screenshot-stop-button').addEventListener('click', function (e) {
+        video.pause();
+        localMediaStream.stop();
+    }, false);
+}
+var readyStateCheckInterval = setInterval(function() {
+    if (document.readyState === "complete") {
+        runVideo();
+        clearInterval(readyStateCheckInterval);
+    }
+}, 10);
+
+
+</script>
+
+<div style="text-align:center;">
+<video id="screenshot-stream" class="videostream" autoplay=""></video>
+<img id="screenshot" src="">
+<canvas id="screenshot-canvas" style="display:none;"></canvas>
+<p><button id="screenshot-button">Capture</button> <button id="screenshot-stop-button">Stop</button></p>
+</div>
+
+<!--h
+<div style="text-align:center;">
+<video id="basic-stream" class="videostream" autoplay="" src="blob:http%3A//www.html5rocks.com/7db866ed-e7b7-4653-ba37-ec76b0873b72" controls=""></video>
+<p><button id="capture-button">Capture video</button> <button id="stop-button">Stop</button></p>
+-->
+<script type="text/javascript">
+
+</script>
+
+
+</div>
+</body>
+
+</html>

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" 
+    android:padding="10dip">
+    
+    <!-- Name Label 
+    <TextView
+        android:text="Name:"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dip"
+        android:layout_marginBottom="5dip"
+        android:textStyle="bold"/>
+    -->
+    
+    <!--  Name Value -->
+    <TextView
+        android:id="@+id/name"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:layout_gravity="center"
+        />
+    
+    <!-- Address Label 
+    <TextView
+        android:text="Address:"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dip"
+        android:layout_marginBottom="5dip"
+        android:textStyle="bold"/>
+    -->
+    <!--  Address Value 
+    <TextView
+        android:id="@+id/address"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"/>
+    -->
+    
+    <!-- Phone Number Label 
+    <TextView
+        android:id="@+id/phone"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dip"/>
+    -->
+    
+    <!-- Location Value 
+    <TextView
+        android:id="@+id/location"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dip"
+        android:layout_marginBottom="5dip"/>
+	-->
+	<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="fill_parent" android:layout_height="fill_parent"
+	android:background="@android:color/black">
+
+
+	<Button android:layout_width="wrap_content"
+		android:layout_height="wrap_content" android:layout_alignParentRight="true"
+		android:layout_alignParentBottom="true" android:id="@+id/sendMessageButton"
+		android:text="Post" android:layout_marginRight="5px"></Button>
+
+	<EditText android:layout_height="wrap_content" android:id="@+id/chatMessage"
+		android:layout_width="fill_parent" android:layout_alignParentLeft="true"
+		android:layout_alignParentBottom="true" android:gravity="center_vertical"
+		android:layout_toLeftOf="@id/sendMessageButton"
+		android:layout_marginLeft="5px"></EditText>
+
+	<ListView android:layout_width="fill_parent"
+		android:layout_height="fill_parent" android:id="@+id/chatView"
+		android:layout_above="@+id/chatMessage" android:background="@android:color/background_light"
+		android:layout_marginBottom="5px" android:transcriptMode="alwaysScroll">
+	</ListView>
+
+</RelativeLayout>
+</LinearLayout>
