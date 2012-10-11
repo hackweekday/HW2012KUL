@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+  <head metal:use-macro="template.macros['head']"></head>
+  <body metal:use-macro="template.macros['body']">
+    <div class="span12" metal:fill-slot="content">
+      <form class="form-horizontal" action="${request.route_url('login')}" method="POST">
+        <fieldset>
+          <div class="control-group">
+            <label class="control-label" for="${form.username.label.field_id}">
+              ${form.username.label.text}
+            </label>
+            <div class="controls">
+              ${form.username}
+              <ul tal:condition="form.username.errors">
+                <li tal:repeat="e form.username.errors">${e}</li>
+              </ul>
+            </div>
+          </div>
+          <div class="control-group">
+            <label class="control-label" for="${form.password.label.field_id}">
+              ${form.password.label.text}
+            </label>
+            <div class="controls">
+              ${form.password}
+              <ul tal:condition="form.password.errors">
+                <li tal:repeat="e form.password.errors">${e}</li>
+              </ul>
+            </div>
+          </div>
+        </fieldset>
+        <div class="form-actions">
+          <input type="submit" value="Login" class="btn btn-primary" />
+        </div>
+      </form>      
+    </div>
+  </body>
+</html>

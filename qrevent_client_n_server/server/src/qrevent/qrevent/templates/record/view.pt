@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="en">
+  <head metal:use-macro="template.macros['head']"></head>
+  <body metal:use-macro="template.macros['body']">
+    <div class="span12" metal:fill-slot="content">
+      <a class="btn btn-primary" href="${request.route_url('record.update', _query={'code_id':record.code_id})}">Update this QR Record</a>
+      <hr />
+      <table class="table table-bordered">
+        <tr>
+          <td>QR Record</td>
+          <td>${record.qrcode}</td>
+        </tr>
+        <tr>
+          <td>Issued by</td>
+          <td>${record.issuer}</td>
+        </tr>
+      </table>
+    </div>
+  </body>
+</html>

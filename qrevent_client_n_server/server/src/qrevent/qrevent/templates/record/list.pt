@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+  <head metal:use-macro="template.macros['head']"></head>
+  <body metal:use-macro="template.macros['body']">
+    <div class="span12" metal:fill-slot="content">
+      <a class="btn btn-primary" href="${request.route_url('record.new')}">Add new QR Record</a>
+      <hr />
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>QR Record</th>
+            <th style="width:100px">Issuer</th>
+            <th style="width:250px">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr tal:repeat="r records">
+            <td>${r.qrcode}</td>
+            <td>${r.issuer}</td>
+            <td>
+              <a class="btn" href="${request.route_url('record.view', _query={'code_id':r.code_id})}">View</a>
+              <a class="btn" href="${request.route_url('record.update', _query={'code_id':r.code_id})}">Update</a>
+              <a class="btn" href="${request.route_url('record.delete', _query={'code_id':r.code_id})}">Delete</a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </body>
+</html>

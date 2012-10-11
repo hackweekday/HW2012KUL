@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+  <head metal:use-macro="template.macros['head']"></head>
+  <body metal:use-macro="template.macros['body']">
+    <div class="span12" metal:fill-slot="content">
+      <form class="form-horizontal" action="${request.route_url('record.update', _query={'code_id':record.code_id})}" method="POST">
+        <fieldset>
+          <div class="control-group">
+            <label class="control-label" for="${form.qrcode.label.field_id}">
+              ${form.qrcode.label.text}
+            </label>
+            <div class="controls">
+              ${form.qrcode}
+              <ul tal:condition="form.qrcode.errors">
+                <li tal:repeat="e form.qrcode.errors">${e}</li>
+              </ul>
+            </div>
+          </div>
+          <div class="control-group">
+            <label class="control-label" for="${form.issuer.label.field_id}">
+              ${form.issuer.label.text}
+            </label>
+            <div class="controls">
+              ${form.issuer}
+              <ul tal:condition="form.issuer.errors">
+                <li tal:repeat="e form.issuer.errors">${e}</li>
+              </ul>
+            </div>
+          </div>
+        </fieldset>
+        <div class="form-actions">
+          <input type="submit" value="Create" class="btn btn-primary" />
+        </div>
+      </form>      
+    </div>
+  </body>
+</html>

@@ -1,0 +1,11 @@
+<!doctype html>
+<html lang="en">
+  <head metal:use-macro="template.macros['head']"></head>
+  <body metal:use-macro="template.macros['body']">
+    <div class="span12" metal:fill-slot="content">
+      <p>
+        This is an error!
+      </p>
+    </div>
+  </body>
+</html>
