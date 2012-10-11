@@ -1,0 +1,85 @@
+/* RESET */
+html,body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,abbr,address,cite,code,del,dfn,em,img,ins,kbd,q,samp,small,strong,sub,sup,var,b,i,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,figcaption,figure,footer,header,hgroup,menu,nav,section,summary,time,mark,audio,video{margin:0;padding:0;border:0;font-size:100%;font:inherit;vertical-align:baseline}
+article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}
+blockquote,q{quotes:none}
+blockquote:before,blockquote:after,q:before,q:after{content:"";content:none}
+ins{background-color:#ff9;color:#000;text-decoration:none}
+mark{background-color:#ff9;color:#000;font-style:italic;font-weight:bold}
+del{text-decoration:line-through}
+abbr[title],dfn[title]{border-bottom:1px dotted;cursor:help}
+table{border-collapse:collapse;border-spacing:0}
+hr{display:block;height:1px;border:0;border-top:1px solid #ccc;margin:1em 0;padding:0}
+input,select{vertical-align:middle}body{font:13px/1.231 sans-serif;*font-size:small}
+select,input,textarea,button{font:99% sans-serif}
+pre,code,kbd,samp{font-family:monospace,sans-serif}
+a:hover,a:active{outline:none}
+ul,ol{margin-left:2em}
+ol{list-style-type:decimal}
+nav ul,nav li{margin:0;list-style:none;list-style-image:none}
+small{font-size:85%}
+strong,th{font-weight:bold}
+td{vertical-align:top}
+sub,sup{font-size:75%;line-height:0;position:relative}
+sup{top:-0.5em}
+sub{bottom:-0.25em}
+pre{white-space:pre;white-space:pre-wrap;word-wrap:break-word;padding:15px}
+textarea{overflow:auto}
+.ie6 legend,.ie7 legend{margin-left:-7px}
+input[type="radio"]{vertical-align:text-bottom}
+input[type="checkbox"]{vertical-align:bottom}
+.ie7 input[type="checkbox"]{vertical-align:baseline}
+.ie6 input{vertical-align:text-bottom}
+label,input[type="button"],input[type="submit"],input[type="image"],button{cursor:pointer}
+button,input,select,textarea{margin:0}
+input:invalid,textarea:invalid{border-radius:1px;-moz-box-shadow:0 0 5px red;-webkit-box-shadow:0 0 5px red;box-shadow:0 0 5px red}
+.no-boxshadow input:invalid,.no-boxshadow textarea:invalid{background-color:#f0dddd}
+a:link{-webkit-tap-highlight-color:#ff5e99}
+button{width:auto;overflow:visible}
+.ie7 img{-ms-interpolation-mode:bicubic}
+body,select,input,textarea{color:#444}
+h1,h2,h3,h4,h5,h6{font-weight:bold}
+a,a:active,a:visited{color:#607890}
+a:hover{color:#036}
+.ir{display:block;text-indent:-999em;overflow:hidden;background-repeat:no-repeat;text-align:left;direction:ltr}
+.hidden{display:none;visibility:hidden}
+.visuallyhidden{border:0;clip:rect(0 0 0 0);height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute;width:1px}
+.visuallyhidden.focusable:active,.visuallyhidden.focusable:focus{clip:auto;height:auto;margin:0;overflow:visible;position:static;width:auto}
+.invisible{visibility:hidden}
+.clearfix:before,.clearfix:after{content:"\0020";display:block;height:0;overflow:hidden}
+.clearfix:after{clear:both}
+.clearfix{zoom:1}@media print{*{background:transparent!important;color:black!important;text-shadow:none!important;filter:none!important;-ms-filter:none!important}
+a,a:visited{color:#444!important;text-decoration:underline}
+a[href]:after{content:" (" attr(href) ")"}
+abbr[title]:after{content:" (" attr(title) ")"}
+.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}
+pre,blockquote{border:1px solid #999;page-break-inside:avoid}
+thead{display:table-header-group}
+tr,img{page-break-inside:avoid}
+@page{margin:.5cm}
+p,h2,h3{orphans:3;widows:3}
+h2,h3{page-break-after:avoid}}
+
+/* STYLE */
+body{background:url(<%=asset_path "background.png" %>);background-repeat:repeat;visibility:hidden}
+#container{background:url(<%=asset_path "background_radial.png" %>);background-repeat:no-repeat;background-position:top center}
+header{height:5px;background:url(<%=asset_path "header_footer_background.png" %>);background-repeat:repeat;position:relative}
+#logo-wrap{width:284px;height:64px;background:url(<%=asset_path "logo_background.png" %>);background-repeat:no-repeat;position:relative;top:100%;margin:0 auto}
+#logo{width:262px;height:64px;margin:0 auto;background:url(<%=asset_path "logo.png" %>);background-repeat:no-repeat;background-position:center center}
+#main{text-align:center;padding-top:64px}
+h1{font-family:'Droid Sans',Arial,sans-serif;font-size:78px;letter-spacing:-7px;color:#fff;text-shadow:rgba(0,0,0,.75) 0 1px 0;font-weight:bold;padding-bottom:2px}
+h2{font-family:'HelveticaNeue','Helvetica Neue',Helvetica,Arial,sans-serif;font-size:26px;text-shadow:rgba(0,0,0,.75) 0 1px 0;color:#7f7f7f;font-weight:normal;letter-spacing:-1px;padding-bottom:31px}
+h3{font-family:'Droid Sans',Arial,sans-serif;font-size:20px;letter-spacing:-1px;color:#242527;text-shadow:rgba(255,255,255,.16) 0 1px 0;font-weight:bold}
+#button{width:513px;height:228px;background:url(<%=asset_path "button.png" %>);background-repeat:no-repeat;margin:0 auto;cursor:pointer;margin-top:13px;margin-bottom:23px}
+#button.hover{background:url(<%=asset_path "button_hover.png" %>)}
+#button.pushed{background:url(<%=asset_path "button_pushed.png" %>)}
+footer{background:url(<%=asset_path "header_footer_background.png" %>);background-repeat:repeat;position:relative}
+#search{width:328px;height:38px;background:url(<%=asset_path "search_background.png" %>);background-repeat:no-repeat;margin:0 auto;margin-top:25px;padding:15px 21px 0 22px}
+#search-input{width:230px;height:23px;background:url(<%=asset_path "search_input.png" %>);background-repeat:no-repeat;float:left;overflow:hidden;padding:7px 0}
+#search-input input{background:transparent;border:none;font-family:'HelveticaNeue-Bold','Helvetica Neue Bold',Helvetica,Arial,sans-serif;font-size:14px;color:#5e6064;text-shadow:rgba(0,0,0,.75) 0 1px 0;outline:none;width:206px;height:23px;line-height:23px;padding:0 12px}
+#search-button{float:right}
+footer nav{padding:20px 0 20px 0}
+footer nav ul{text-align:center}
+footer nav ul li{display:inline}
+footer nav ul li.space{font-family:'HelveticaNeue-Bold','Helvetica Neue Bold',Helvetica,Arial,sans-serif;font-size:14px;color:#4f5460;text-shadow:rgba(0,0,0,.75) 0 1px 0}
+footer nav ul li a{font-family:'HelveticaNeue-Bold','Helvetica Neue Bold',Helvetica,Arial,sans-serif;font-size:14px;color:#9b9fa8;text-shadow:rgba(0,0,0,.75) 0 1px 0;text-decoration:none}
+footer nav ul li a:hover,footer nav ul li a:visited{color:#9b9fa8}

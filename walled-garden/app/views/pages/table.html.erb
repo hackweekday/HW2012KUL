@@ -1,0 +1,134 @@
+<div class="container">
+	<div class="grid_12">
+		<h2>Table</h2>
+
+		<h3>Normal table</h3>
+		<div class="table_wrap">
+			
+			<a href="#" class="fright btn blue">Add Product</a>
+			<!-- <a href="#" class="fright btn red">Delete Product</a> -->
+			<h3>Table title</h3>
+
+			<table>
+			  <thead>
+			    <tr>
+			      <th>Product Name</th>
+			    </tr>
+			  </thead>
+			  <tbody>
+			  	<tr>
+			  		<td>asd</td>
+			  	</tr>
+			  	<tr>
+			  		<td>asd</td>
+			  	</tr>
+			  </tbody>
+			</table>
+		</div><!-- table_wrap close -->
+			
+
+<pre>
+&lt;div class=&quot;table_wrap&quot;&gt;
+	
+	&lt;a href=&quot;#&quot; class=&quot;fright btn blue&quot;&gt;Add Product&lt;/a&gt;
+	&lt;!-- &lt;a href=&quot;#&quot; class=&quot;fright btn red&quot;&gt;Delete Product&lt;/a&gt; --&gt;
+	&lt;h3&gt;Table title&lt;/h3&gt;
+
+	&lt;table&gt;
+	  &lt;thead&gt;
+	    &lt;tr&gt;
+	      &lt;th&gt;Product Name&lt;/th&gt;
+	    &lt;/tr&gt;
+	  &lt;/thead&gt;
+	  &lt;tbody&gt;
+	  	&lt;tr&gt;
+	  		&lt;td&gt;asd&lt;/td&gt;
+	  	&lt;/tr&gt;
+	  	&lt;tr&gt;
+	  		&lt;td&gt;asd&lt;/td&gt;
+	  	&lt;/tr&gt;
+	  &lt;/tbody&gt;
+	&lt;/table&gt;
+
+&lt;/div&gt;&lt;!-- table_wrap close --&gt;
+</pre>
+
+		<h3>Zebra Table</h3>
+
+		<div class="table_wrap">
+			
+			<a href="#" class="fright btn blue">Add Product</a>
+			<!-- <a href="#" class="fright btn red">Delete Product</a> -->
+			<h3>Zebra table</h3>
+
+			<table class="zebra_table">
+			  <thead>
+			    <tr>
+			      <th>Product Name</th>
+			    </tr>
+			  </thead>
+			  <tbody>
+			  	<tr>
+			  		<td>asd</td>
+			  	</tr>
+			  	<tr>
+			  		<td>asd</td>
+			  	</tr>
+			  	<tr>
+			  		<td>asd</td>
+			  	</tr>
+			  	<tr>
+			  		<td>asd</td>
+			  	</tr>
+			  </tbody>
+			</table>
+		</div><!-- table_wrap close -->
+<pre>
+&lt;table class=&quot;zebra_table&quot;&gt;
+</pre>
+
+
+	<h3>jQuery Datatable</h3>
+
+		<div class="table_wrap">
+			
+			<a href="#" class="fright btn blue">Add Product</a>
+			<!-- <a href="#" class="fright btn red">Delete Product</a> -->
+			<h3>jQuery Datatable</h3>
+
+			<table id="demo_dttb" class="display dataTable">
+			  <thead>
+			    <tr>
+			      <th>Product Name</th>
+			    </tr>
+			  </thead>
+			  <tbody>
+			  	<tr>
+			  		<td>asd</td>
+			  	</tr>
+			  	<tr>
+			  		<td>asd</td>
+			  	</tr>
+			  	<tr>
+			  		<td>asd</td>
+			  	</tr>
+			  	<tr>
+			  		<td>asd</td>
+			  	</tr>
+			  </tbody>
+			</table>
+		</div><!-- table_wrap close -->
+
+<pre>
+&lt;table id=&quot;demo_dttb&quot; class=&quot;display dataTable&quot;&gt;
+</pre>
+
+<pre>
+$('#demo_dttb').dataTable
+    bJQueryUI: true
+    fnFooterCallback: ->
+    	dttb_border()
+</pre>
+
+	</div><!-- grid_12 close -->
+</div><!-- container close -->

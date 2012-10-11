@@ -1,0 +1,118 @@
+	<div class="modal hide" id="guide_box2">
+		<div class="modal-header">
+			<a class="close" data-dismiss="modal">×</a>
+			<h3>Modal header</h3>
+		</div>
+		<div class="modal-body">
+			<p>One fine body..</p>
+			<a href="#" class="show_modal btn blue"> show modal</a>
+		</div>
+		<div class="modal-footer">
+			<a href="#" class="btn white">Close</a>
+			<a href="#" class="btn blue">Save changes</a>
+		</div>
+	</div>
+
+
+	<div class="modal hide" id="guide_box">
+		<div class="modal-header">
+			<a class="close" data-dismiss="modal">X</a>
+			<h3>Modal header</h3>
+		</div>
+		<div class="modal-body">
+			<p>One fine body..</p>
+			<a href="#" class="show_modal btn blue"> show modal</a>
+
+		</div>
+		<div class="modal-footer">
+			<a href="#" class="btn white">Close</a>
+			<a href="#" class="btn blue">Save changes</a>
+		</div>
+	</div>
+
+
+	<div class="modal hide" id="modal_error">
+		<div class="modal_error">
+			<a class="close" data-dismiss="modal">×</a>
+			<p class="error_text"></p>
+		</div><!-- modal_error close -->
+	</div>
+
+	<div class="loading_bg" id="modal_loading">
+		<div class="modal_loading">
+			<%= image_tag 'loading.gif' %>
+			<p>Loading</p>
+		</div><!-- modal_loading close -->
+	</div>
+
+<div class="container">
+	<div class="grid_12">
+		<h2>Twitter modal</h2>
+		<p>http://twitter.github.com/bootstrap/javascript.html#modals</p>
+		<h3>Error</h3>
+		<a href="#" class="show_error btn blue"> show error</a>
+<pre>
+$( "#modal_error" ).modal()
+$( '.error_text' ).html('Test')
+</pre>
+
+<pre>
+&lt;div class=&quot;modal hide&quot; id=&quot;modal_error&quot;&gt;
+	&lt;div class=&quot;modal_error&quot;&gt;
+		&lt;a class=&quot;close&quot; data-dismiss=&quot;modal&quot;&gt;X&lt;/a&gt;
+		&lt;p class=&quot;error_text&quot;&gt;&lt;/p&gt;
+	&lt;/div&gt;&lt;!-- modal_error close --&gt;
+&lt;/div&gt;
+</pre>
+
+		<h3>Loading</h3>
+		<a href="#" class="show_loading btn blue"> show loading</a>
+<pre>
+$( "#modal_loading" ).fadeIn()
+$( "#modal_loading" ).fadeOut()
+</pre>
+
+<pre>
+&lt;div class=&quot;loading_bg&quot; id=&quot;modal_loading&quot;&gt;
+	&lt;div class=&quot;modal_loading&quot;&gt;
+		&lt;%= image_tag 'loading.gif' %&gt;
+		&lt;p&gt;Loading&lt;/p&gt;
+	&lt;/div&gt;&lt;!-- modal_loading close --&gt;
+&lt;/div&gt;
+</pre>
+
+		<h3>Normal</h3>
+		<a href="#" class="show_modal btn blue"> show modal</a>
+		<pre>$( "#modal_box" ).modal()</pre>
+
+		<h3>Big</h3>
+		<p>Resonsive modal. If width > 1200px modal width is fixed</p>
+		<a href="#" class="show_modal_big btn blue"> show modal big</a>
+		<pre>
+$('.show_modal_big').click ->
+	$( "#guide_box2" ).modal().css
+		"margin-left": '-45%'
+		"width": '90%'
+		"z-index": 700
+	$(".modal-backdrop").css
+		"z-index": 699		
+	checkWidth("#guide_box2")
+</pre>
+
+		<pre>
+&lt;div class=&quot;modal&quot; id=&quot;#guide_box2&quot;&gt;
+	&lt;div class=&quot;modal-header&quot;&gt;
+		&lt;a class=&quot;close&quot; data-dismiss=&quot;modal&quot;&gt;&times;&lt;/a&gt;
+		&lt;h3&gt;Modal header&lt;/h3&gt;
+	&lt;/div&gt;
+	&lt;div class=&quot;modal-body&quot;&gt;
+		&lt;p&gt;One fine body…&lt;/p&gt;
+	&lt;/div&gt;
+	&lt;div class=&quot;modal-footer&quot;&gt;
+		&lt;a href=&quot;#&quot; class=&quot;btn white&quot;&gt;Close&lt;/a&gt;
+		&lt;a href=&quot;#&quot; class=&quot;btn blue&quot;&gt;Save changes&lt;/a&gt;>
+	&lt;/div&gt;
+&lt;/div&gt;
+</pre>
+	</div><!-- grid_12 close -->
+</div><!-- container close -->

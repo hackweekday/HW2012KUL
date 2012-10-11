@@ -1,0 +1,223 @@
+<div class="container">
+	<div class="main grid_12">
+	
+	<h2>Form inline</h2>
+
+	<form action="#" method="post"> 
+
+		<ul class="form_ul form_inline">
+			<li>
+				<div class="label_left">
+					<label>Input</label>
+				</div><!-- label_left close -->
+				<div class="input_right">
+					<input type="text" >
+				</div><!-- input_right close -->
+			</li>
+			<li class="action">
+				<div class="label_left">
+					&nbsp;
+				</div><!-- label_left close -->
+				<div class="input_right">
+					<input type="submit" class="btn blue">
+				</div><!-- input_right close -->
+			</li>
+		</ul>
+
+<pre>
+&lt;ul class=&quot;form_ul form_inline&quot;&gt;
+	&lt;li&gt;
+		&lt;div class=&quot;label_left&quot;&gt;
+			&lt;label&gt;Input&lt;/label&gt;
+		&lt;/div&gt;&lt;!-- label_left close --&gt;
+		&lt;div class=&quot;input_right&quot;&gt;
+			&lt;input type=&quot;text&quot; &gt;
+		&lt;/div&gt;&lt;!-- input_right close --&gt;
+	&lt;/li&gt;
+	&lt;li class=&quot;action&quot;&gt;
+		&lt;div class=&quot;label_left&quot;&gt;
+			&amp;nbsp;
+		&lt;/div&gt;&lt;!-- label_left close --&gt;
+		&lt;div class=&quot;input_right&quot;&gt;
+			&lt;input type=&quot;submit&quot; class=&quot;btn blue&quot;&gt;
+		&lt;/div&gt;&lt;!-- input_right close --&gt;
+	&lt;/li&gt;
+&lt;/ul&gt;
+</pre>
+
+		<h2>Form</h2>
+
+		<ul class="form_ul label_block">
+			<li>
+				<label for="zone_zone_name">Input</label>
+				<input type="text" size="30" name="zone[zone_name]" id="zone_zone_name">
+			</li>
+			<li>
+				<label for="zone_zone_service">Select</label>
+				<select name="zone[zone_service]" id="zone_zone_service" class="field select addr"><option value="1">Normal </option></select>
+			</li>
+			<li class="action">
+				<input type="submit" class="btn blue">
+			</li>
+		</ul>
+
+<pre>
+&lt;ul class=&quot;form_ul label_block&quot;&gt;
+	&lt;li&gt;
+		&lt;label for=&quot;zone_zone_name&quot;&gt;Input&lt;/label&gt;
+		&lt;input type=&quot;text&quot; size=&quot;30&quot; name=&quot;zone[zone_name]&quot; id=&quot;zone_zone_name&quot;&gt;
+	&lt;/li&gt;
+	
+	&lt;li&gt;
+		&lt;label for=&quot;zone_zone_service&quot;&gt;Select&lt;/label&gt;
+		&lt;select name=&quot;zone[zone_service]&quot; id=&quot;zone_zone_service&quot; class=&quot;field select addr&quot;&gt;&lt;option value=&quot;1&quot;&gt;Normal &lt;/option&gt;&lt;/select&gt;
+	&lt;/li&gt;
+
+	&lt;li class=&quot;action&quot;&gt;
+		&lt;input type=&quot;submit&quot; class=&quot;btn blue&quot;&gt;
+	&lt;/li&gt;
+&lt;/ul&gt;
+</pre>
+
+		<h2>Form for register, login</h2>
+
+		<div class="form_dns">
+			<ul class="form_ul">
+				<li>
+					<label>Label</label>
+					<input type="text">
+				</li>
+				<li class="action">
+					<input type="submit" class="btn blue">
+				</li>
+			</ul>
+		</div><!-- form_dns close -->
+
+<pre>
+&lt;div class=&quot;form_dns&quot;&gt;
+	Form code
+&lt;/div&gt;&lt;!-- form_dns close --&gt;
+</pre>
+
+
+	<h2 class="title">Error</h2>
+
+		<div id="error_explanation">
+			<h2><span>4 errors</span> found:</h2>
+			<ul>
+				<li>Name can't be blank</li><li>Email can't be blank</li><li>Password can't be blank</li><li>Captcha code error. Please re-enter the code.</li>
+			</ul>
+		</div>
+
+<pre>
+&lt;% if @zone.errors.any? %&gt;
+&lt;div id=&quot;error_explanation&quot;&gt;
+	&lt;h2&gt; &lt;span&gt;&lt;%= pluralize(@zone.errors.count, &quot;error&quot;) %&gt;&lt;/span&gt; &lt;/h2&gt;
+
+	&lt;ol&gt;
+		&lt;% @zone.errors.full_messages.each do |msg| %&gt;
+			&lt;li&gt;&lt;%#= msg %&gt;&lt;/li&gt;
+		&lt;% end %&gt;
+	&lt;/ol&gt;
+&lt;/div&gt;
+&lt;% end %&gt;
+</pre>
+
+		<h2>Alert</h2>
+
+		<div class="alert">
+			Alert
+		</div><!-- alert close -->
+
+<pre>
+&lt;div class=&quot;alert&quot;&gt;
+	Alert
+&lt;/div&gt;&lt;!-- alert close --&gt;
+</pre>
+
+
+<!-- 
+		<form action="#" method="post"> 
+
+			<p>
+				<label for="email" id="email">Email form</label>
+				<input type="email" required="" value="" class="" spellcheck="false" name="email" id="email">
+			</p>
+
+			<p>
+				<label>Input</label>
+				<input type="text" >
+			</p>
+
+			<p>
+				<label>.small_input</label>
+				<input type="text" class="small_input" >
+			</p>
+
+			<p>
+				<label>.small_input</label>
+				<input type="text" class="small_input" >
+			</p>
+
+			<p>
+				<label>.v4_input</label>
+				<input type="text" class="v4_input" > <input type="text" class="v4_input" > <input type="text" class="v4_input" > <input type="text" class="v4_input" >
+			</p>
+
+			<p>
+				<label>.v6_input</label>
+				<input type="text" class="v6_input" > <input type="text" class="v6_input" > <input type="text" class="v6_input" > <input type="text" class="v6_input" > <input type="text" class="v6_input" > <input type="text" class="v6_input" > <input type="text" class="v6_input" > <input type="text" class="v6_input" >
+			</p>
+
+			<p>
+				<label>.medium_input</label>
+				<input type="text" class="medium_input" >
+			</p>
+
+			<p>
+				<label for="male">Male</label>
+				<input type="radio" name="sex" id="male" />
+		
+				<label for="female">Female</label>
+				<input type="radio" name="sex" id="female" />
+			</p>
+			
+
+			<fieldset>
+				<legend>Personal information:</legend>
+				Name: <input type="text" size="30" /><br />
+			</fieldset>
+
+			<p>
+				<input type="checkbox" name="vehicle" value="Bike" /> I have a bike<br />
+				<input type="checkbox" name="vehicle" value="Car" /> I have a car 
+			</p>
+
+			<p>
+			<select name="cars" class="cute_select">
+				<option value="golf" selected="selected">List 1</option>
+				<option value="golf" selected="selected">List 2</option>
+				<option value="golf" selected="selected">List 3</option>
+				<option value="golf" selected="selected">I have a car</option>
+			</select>
+			</p>
+
+			<p>
+			<select>
+				<option value="golf" selected="selected">List 1</option>
+				<option value="golf" selected="selected">I have a car </option>
+				<option value="golf" selected="selected">List 3</option>
+				<option value="golf" selected="selected">List 4</option>
+			</select>
+			</p>
+
+			<p>
+				<label>Text area</label>
+				<textarea name="your-message" id="contactmsg" cols="40" rows="10"></textarea></p> 
+			</p>
+
+			<input type="submit" value="Submit" class="btn blue" /> or 
+			<input type="submit" value="Cancel" class="btn white" />
+		</form>   close -->
+	</div><!-- main close -->
+</div><!-- container_12 close -->

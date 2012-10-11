@@ -1,0 +1,39 @@
+<div class="container">
+	<div class="grid_12">
+		<h2>Clipboard</h2>
+		<p><a href="http://www.steamdev.com/zclip/">http://www.steamdev.com/zclip/</a></p>
+
+		<h3>Example</h3>
+		<h4>Icon</h4>
+		<a href="#" class="copy_url"></a>
+		<pre>&lt;a href=&quot;#&quot; class=&quot;copy_url&quot;&gt;&lt;/a&gt;</pre>
+
+		<h4>Text</h4>
+		<a href="#" id="copy-description">Copy</a>
+		<pre>&lt;a href=&quot;#&quot; id=&quot;copy-description&quot;&gt;Copy p.text()&lt;/a&gt;</pre>
+
+		<h4>P tag</h4>
+		<p id="description">Description</p>
+		<pre>&lt;p id=&quot;description&quot;&gt;Description&lt;/p&gt;</pre>
+
+		<script type="text/javascript">
+			$('a#copy-description, a.copy_url').zclip({
+				path:'/ZeroClipboard.swf',
+				copy:$('p#description').text()
+			});
+		</script>
+
+		<h3>Javascript</h3>
+		<pre>
+&lt;script type=&quot;text/javascript&quot;&gt;
+	$('a#copy-description').zclip({
+		path:'/ZeroClipboard.swf',
+		copy:$('p#description').text()
+	});
+&lt;/script&gt;
+</pre>
+		
+
+
+	</div><!-- grid_12 close -->
+</div><!-- container close -->

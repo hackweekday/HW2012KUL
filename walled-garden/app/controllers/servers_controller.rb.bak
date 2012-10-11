@@ -1,0 +1,42 @@
+class ServersController < ApplicationController
+  set_tab :servers, :first_level
+  layout 'application_without_sidebar'
+  def index
+  	@masters_with_tsig = []
+  	@masters_without_tsig = []
+  	Master.all.each do |m|
+  		unless m.tsig.nil?
+	  		@masters_with_tsig << m 
+	  	else
+	  		@masters_without_tsig << m
+	  	end
+  	end
+  end
+
+  def edit
+  	@server = Master.find(params[:id])
+
+  	unless @server.tsig.nil?
+  		@server.tsig_chk = "on"
+	end
+  end
+
+  def destroy
+  	@server = Master.find(params[:id])
+  	@server.destroy
+  	@notice = "Server destroyed!"
+  	index
+  	render 'save.js'
+  end
+  def update
+  	@server = Master.find(params[:id])
+  	if @server.update_attributes(params[:master])
+  		index
+  		render 'save.js'
+  	else
+  		@error = @server.errors.full_messages
+  		render 'error.js'
+  		#render :js => "alert('no')"
+  	end
+  end
+end

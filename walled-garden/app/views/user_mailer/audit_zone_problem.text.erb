@@ -1,0 +1,18 @@
+Dear Admin,
+
+I'm as DNSSocial auditor has found problem with <%=@domain.zone_name%>.
+
+The zone does not exist at:
+
+<% @nameservers.each do |ns| %>
+<%=ns%>
+<% end %>
+
+
+
+Thanks.
+
+Warm Regards,
+
+The DNSSocial Team.
+support@dnssocial.com

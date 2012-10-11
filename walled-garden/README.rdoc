@@ -1,0 +1,9 @@
+HITB
+
+HackWeekDay 2012
+
+Title: DNSSocial as DNS RPZ Provider
+
+Create a complete module which support DNS RPZ implementation (DNSSocial as blacklist provider)
+
+

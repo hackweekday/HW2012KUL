@@ -1,0 +1,60 @@
+class TunnelBroker::Freenet6Controller < ApplicationController
+	set_tab :appliance_management
+	set_tab :freenet6, :first_level
+	set_tab :info, :second_level, :only => %w(info)
+	set_tab :setup, :second_level, :only => %w(setup)
+	set_tab :log, :second_level, :only => %w(log)
+	
+	#skip_before_filter :set_timezone
+	before_filter :set_timezone
+	
+	def index
+		redirect_to :action => :info
+	end
+
+	def show
+	end
+
+	def info
+		@tun = %x{ruby lib/tun.rb} 
+		if @tun.empty?
+			@tun = "No IPv6 address."
+		elsif @tun =~ /options/
+			@tun = "Waiting for link-local address."
+		end
+	end
+
+	def setup
+		@broker = Freenet6.first
+		if @broker.nil?
+			@broker = Freenet6.new
+			@broker.address = "broker.freenet6.net"
+		end
+	end
+
+	def save
+		@broker = Freenet6.first
+		if @broker.nil?
+			@broker = Freenet6.new(params[:freenet6])
+			saved = @broker.save ? true : false
+		else
+			saved = @broker.update_attributes(params[:freenet6]) ? true : false
+		end
+		if saved
+			render :js => "show_flash('Tunnel broker has been successfully updated.');$('.my_error_msg').hide();$('#freenet6_password').val('')"
+		else
+	        @error = @broker.errors.full_messages
+	        logger.debug "$$ #{@errors}"
+	        render 'error.js'
+		end
+	end
+	
+	def log 
+		@logs = Freenet6Log.order("date_time desc")
+	end
+	
+	def set_timezone
+		Time.zone = "UTC"
+	end
+
+end

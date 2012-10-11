@@ -1,0 +1,117 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d" x:Class="DicomWave.RevORWindow"
+        Title="Review Operation Room Mode - DICOM Wave 0.1" Height="643.824" Width="845.48" Background="White">
+	<Window.Resources>
+		<Style x:Key="BtnLoadCase" TargetType="{x:Type Button}">
+			<Setter Property="Template">
+				<Setter.Value>
+					<ControlTemplate TargetType="{x:Type Button}">
+						<Grid>
+							<Image Source="Assets/Images/Document.png" Stretch="Fill"/>
+							<ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+						</Grid>
+						<ControlTemplate.Triggers>
+							<Trigger Property="IsFocused" Value="True"/>
+							<Trigger Property="IsDefaulted" Value="True"/>
+							<Trigger Property="IsMouseOver" Value="True"/>
+							<Trigger Property="IsPressed" Value="True"/>
+							<Trigger Property="IsEnabled" Value="False"/>
+						</ControlTemplate.Triggers>
+					</ControlTemplate>
+				</Setter.Value>
+			</Setter>
+		</Style>
+		<Style x:Key="ButtonStyle2" TargetType="{x:Type Button}">
+			<Setter Property="Template">
+				<Setter.Value>
+					<ControlTemplate TargetType="{x:Type Button}">
+						<Grid>
+							<Image Source="Assets/Images/ORMode.png" Stretch="Fill"/>
+							<ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+						</Grid>
+						<ControlTemplate.Triggers>
+							<Trigger Property="IsFocused" Value="True"/>
+							<Trigger Property="IsDefaulted" Value="True"/>
+							<Trigger Property="IsMouseOver" Value="True"/>
+							<Trigger Property="IsPressed" Value="True"/>
+							<Trigger Property="IsEnabled" Value="False"/>
+						</ControlTemplate.Triggers>
+					</ControlTemplate>
+				</Setter.Value>
+			</Setter>
+		</Style>
+	</Window.Resources>
+   <Grid>	
+<!--         <DataGrid x:Name="ctrl_DataGrid" Margin="311.034,251.871,26.602,8">
+	        <DataGrid.Columns>
+	            <DataGridTemplateColumn Header="DICOM Images" Width="100">
+	                <DataGridTemplateColumn.CellTemplate>
+	                    <DataTemplate>
+							<ItemsControl x:Name="imageList">
+							    <ItemsControl.ItemsPanel>
+							        <ItemsPanelTemplate>
+							            <StackPanel></StackPanel>
+							        </ItemsPanelTemplate>
+							    </ItemsControl.ItemsPanel>
+							    <ItemsControl.ItemTemplate>
+							        <DataTemplate>
+
+							            <Image Source="{Binding Path=Value}" />
+							        </DataTemplate>
+							    </ItemsControl.ItemTemplate>
+							</ItemsControl>
+	                    </DataTemplate>
+	                </DataGridTemplateColumn.CellTemplate>
+	            </DataGridTemplateColumn>
+	   		</DataGrid.Columns>	
+		</DataGrid> -->
+		
+        <ScrollViewer HorizontalAlignment="Left" Height="Auto" Margin="20.034,131.098,0,62.144" Width="692.499" BorderThickness="15,10,6,9" Opacity="0.64" BorderBrush="Black" Background="#FFCECECE">
+   		<Grid x:Name="dynamic_grid"/>	
+   	</ScrollViewer>	
+<!--         <DataGrid x:Name="ctrl_DataGrid" Margin="311.034,251.871,26.602,8">
+	        <DataGrid.Columns>
+	            <DataGridTemplateColumn Header="DICOM Images" Width="100">
+	                <DataGridTemplateColumn.CellTemplate>
+	                    <DataTemplate>
+							<ItemsControl x:Name="imageList">
+							    <ItemsControl.ItemsPanel>
+							        <ItemsPanelTemplate>
+							            <StackPanel></StackPanel>
+							        </ItemsPanelTemplate>
+							    </ItemsControl.ItemsPanel>
+							    <ItemsControl.ItemTemplate>
+							        <DataTemplate>
+
+							            <Image Source="{Binding Path=Value}" />
+							        </DataTemplate>
+							    </ItemsControl.ItemTemplate>
+							</ItemsControl>
+	                    </DataTemplate>
+	                </DataGridTemplateColumn.CellTemplate>
+	            </DataGridTemplateColumn>
+	   		</DataGrid.Columns>	
+		</DataGrid> -->
+		
+        <Image Margin="30,146,150,78" x:Name="ctr_Image_RV" Stretch="Fill" />
+        <Label Content="Label" Height="13" HorizontalAlignment="Left" Margin="134,17,0,0" x:Name="label2" VerticalAlignment="Top" Width="39" />
+        <Label Content="Review OR" HorizontalAlignment="Left" Margin="8,47,0,0" x:Name="label3" d:LayoutOverrides="HorizontalAlignment" Height="59.664" VerticalAlignment="Top" Foreground="#FF332828" FontSize="29.333" Width="165" Background="#005C5C5C" />
+        <Rectangle Fill="#FF00A7FF" Height="32" VerticalAlignment="Top"/>
+        <Label Content="DICOM" Height="30" Margin="345.692,0,356.131,0" x:Name="label1" VerticalAlignment="Top" FontFamily="Arial" FontSize="21.333" FontStyle="Italic" FontWeight="Bold" Foreground="#FFFFF9F9" d:LayoutOverrides="HorizontalAlignment" />
+        <Label Content="Wave" Height="30" Margin="0,0,328.403,574.824" x:Name="label1_Copy" VerticalAlignment="Bottom" FontFamily="Arial" FontSize="16" FontStyle="Italic" FontWeight="Bold" Foreground="#FFFFF9F9" HorizontalAlignment="Right" Width="82.381" />
+        <Label Content="Please review the images to be included in Operation Room Mode" HorizontalAlignment="Left" Margin="8,82.689,0,0" x:Name="label3_Copy2" Height="44.409" VerticalAlignment="Top" Foreground="#FF00A7FF" FontSize="18.667" Width="606.105" Background="#005A4040" />
+        <TextBlock x:Name="txt_HdrPatientName_RV" Height="17.475" Margin="34.696,148.493,0,0" TextWrapping="Wrap" Text="Patient Name" VerticalAlignment="Top" FontSize="16" Foreground="#FF00A7FF" HorizontalAlignment="Left" Width="96.592"/>
+        <TextBlock x:Name="txt_HdrPatientID_RV" Height="17.475" Margin="34.696,169.073,0,0" TextWrapping="Wrap" Text="Patient ID" VerticalAlignment="Top" FontSize="14.667" Foreground="#FF00A7FF" HorizontalAlignment="Left" Width="96.592"/>
+        <TextBlock Margin="32.48,0,0,171.186" TextWrapping="Wrap" Text="Patient Age" FontSize="16" Height="24.825" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="96.592"/>
+        <TextBlock Margin="33.98,0,0,149.711" TextWrapping="Wrap" Text="Patient Sex" FontSize="16" HorizontalAlignment="Left" Width="96.592" Height="17.475" VerticalAlignment="Bottom"/>
+        <TextBlock Margin="32.48,0,0,76.211" TextWrapping="Wrap" Text="Scan Date" FontSize="16" HorizontalAlignment="Left" Width="96.592" Height="17.475" VerticalAlignment="Bottom"/>
+        <TextBlock Margin="32.48,0,0,93.276" TextWrapping="Wrap" Text="Institution Name" FontSize="16" HorizontalAlignment="Left" Width="96.592" Height="47.45" VerticalAlignment="Bottom"/>
+        <TextBlock x:Name="txt_PatientAge_RV" Margin="134,0,0,171.186" TextWrapping="Wrap" Text="Patient Age" FontSize="16" Height="24.825" VerticalAlignment="Bottom" FontWeight="Bold" HorizontalAlignment="Left" Width="96.592"/>
+        <TextBlock x:Name="txt_PatientSex_RV" Margin="129.5,0,0,149.711" TextWrapping="Wrap" Text="Patient Sex" FontSize="16" FontWeight="Bold" HorizontalAlignment="Left" Height="17.475" VerticalAlignment="Bottom" Width="96.592"/>
+        <TextBlock x:Name="txt_ScanDate_RV" Margin="129.5,0,0,76.211" TextWrapping="Wrap" Text="Scan Date" FontSize="16" Height="17.475" VerticalAlignment="Bottom" FontWeight="Bold" HorizontalAlignment="Left" Width="96.592"/>
+        <TextBlock x:Name="txt_Institution_RV" Margin="131,0,0,93.276" TextWrapping="Wrap" Text="Institution Name" FontSize="16" Height="47.45" VerticalAlignment="Bottom" FontWeight="Bold" HorizontalAlignment="Left" Width="96.592"/>
+        <Button Content="Proceed" HorizontalAlignment="Right" Height="27.056" Margin="0,0,116.947,23" VerticalAlignment="Bottom" Width="57.779" Click="OnClickProceed"/>
+    </Grid>
+</Window>

@@ -1,0 +1,47 @@
+<div class="container">
+	<div class="grid_12">
+
+		<h2>Full width</h2>
+<pre>
+&lt;div class=&quot;container&quot;&gt;
+	&lt;div class=&quot;grid_12&quot;&gt;
+		&lt;div class=&quot;content_no_sidebar&quot;&gt;
+			&lt;div class=&quot;content_header&quot;&gt;
+				&lt;h3&gt;Title&lt;/h3&gt;
+			&lt;/div&gt;&lt;!-- content_header close --&gt;
+
+			&lt;div class=&quot;tab_wrap&quot;&gt;
+				&lt;ul class=&quot;normal_tab&quot;&gt;
+					&lt;li&gt;&lt;a class=&quot;selected&quot; href=&quot;&quot;&gt;Profile&lt;/a&gt;&lt;/li&gt;
+					&lt;li&gt;&lt;a href=&quot;&quot;&gt;Password&lt;/a&gt;&lt;/li&gt;
+				&lt;/ul&gt;
+			&lt;/div&gt;&lt;!-- tab_wrap close --&gt;
+
+			&lt;div class=&quot;content_inside&quot;&gt;
+				Content
+			&lt;/div&gt;&lt;!-- content_inside close --&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;&lt;!-- grid_12 close --&gt;
+&lt;/div&gt;&lt;!-- container close --&gt;
+</pre>
+
+		<div class="content_no_sidebar">
+			<div class="content_header">
+				<h3><%= current_user.name %></h3>
+			</div><!-- content_header close -->
+
+			<div class="tab_wrap">
+				<ul class="normal_tab">
+					<li><a class="selected" href="">Profile</a></li>
+					<li><a href="">Password</a></li>
+				</ul>
+			</div><!-- tab_wrap close -->
+
+			<div class="content_inside">
+				content
+			</div><!-- content_inside close -->
+		</div>
+	</div><!-- grid_12 close -->
+</div><!-- container close -->
+
+

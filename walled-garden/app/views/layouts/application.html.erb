@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]> <html class="no-js ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]>    <html class="no-js ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]>    <html class="no-js ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!-->
+<html class="no-js" lang="en"><!--<![endif]-->
+	<head>
+  	  	<meta http-equiv="content-type" content="text/html; charset=UTF-8">	
+		<meta charset="utf-8">		
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">		
+		<title>Oppss..</title>
+		<link rel="stylesheet" href="assets/css.css">
+		<link rel="stylesheet" href="assets/style.css">		
+		<script src="assets/modernizr.js"></script>	
+		<%= stylesheet_link_tag    "application", :media => "all" %>
+  		<%= javascript_include_tag "application" %>
+  		<%= csrf_meta_tags %>
+
+  		<script type="text/javascript">
+
+		  var _gaq = _gaq || [];
+		  _gaq.push(['_setAccount', 'UA-35419640-1']);
+		  // set custom variables
+		  _gaq.push(["_setCustomVar", 1, "site", "<%=@url%>", 1]);
+		  _gaq.push(["_setCustomVar", 2, "user_ip", "<%=@rip%>", 1]);
+		  _gaq.push(["_setCustomVar", 3, "subscriber_id", "<%=@sid%>", 1]);
+		  
+		  _gaq.push(['_setDomainName', 'rpzwg.org']);
+		  _gaq.push(['_trackPageview']);
+
+		  (function() {
+		    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+		    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+		    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+		  })();
+
+		</script>
+	</head>
+	
+	<body>	
+		<div id="container">
+			<header>
+			  <div id="logo-wrap">
+					<div id="logo"></div>
+				</div>
+			</header>
+			<div id="main" role="main">
+				<h1>ooops...</h1>
+				<h2>It seems the page you were looking for doesn’t exist</h2>
+				<h3>You can either press this button</h3>
+				<div class="hover" id="button"></div>
+				<h3>Or you can search our site...</h3>
+				<h3><%= yield %></h3>
+			</div>
+			<div id="search">
+				<form action="https://www.google.com/search" name="searchbox" method="get" >
+                 <input type="hidden" name="hl" value="en" />
+
+					<div id="search-input"><input type="text" name="q" value="dnssocial" class="placeholder" /></div>
+					<div id="search-button"><input type="image" src="assets/search_button.png" onmouseover="this.src='assets/search_button_hover.png'" onmouseout="this.src='assets/search_button.png'" onmousedown="this.src='assets/search_button_pushed.png'" onmouseup="this.src='assets/search_button.png'" /></div>
+				</form>
+			</div>
+			<footer>
+				<nav>
+					<ul>
+						<li><a href="http://www.facebook.com/dnssocial">Facebook</a></li>				
+					</ul>
+				</nav>
+			</footer>
+		</div>	
+		<script src="assets/jquery.js"></script>
+		<script>window.jQuery || document.write("<script src='assets/js/libs/jquery.js'>\x3C/script>")</script>	
+		<script src="assets/jqueryui.js"></script>
+		<script src="assets/imgload.js"></script>
+		<script src="assets/settings.js"></script>
+		<script src="assets/script.js"></script>	
+	</body>
+</html>
